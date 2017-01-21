@@ -356,8 +356,6 @@ public class URSSManager : MonoBehaviour {
 
         Fader.FadeIn();
 
-        Debug.Break();
-
         yield return new WaitForSeconds(4);
 
         if (!p1) lastScreenSetup.Kill(0);
