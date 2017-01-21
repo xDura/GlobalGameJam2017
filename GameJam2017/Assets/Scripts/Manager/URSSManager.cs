@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class URSSManager : MonoBehaviour {
-    static SweepLine sweepLine;
+    public static SweepLine sweepLine;
 
     public List<PlayerController> controllers;
 
