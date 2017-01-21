@@ -7,8 +7,13 @@ public class SweepLine : MonoBehaviour {
     public Vector2 dir;
     public bool ready = false;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        initPos = transform.position;
+    }
+
+    // Use this for initialization
+    void Start () {
         initPos = transform.position;
         Debug.Log(GetComponent<Collider2D>().isTrigger);
 	}
