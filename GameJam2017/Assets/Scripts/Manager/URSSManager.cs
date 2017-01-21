@@ -14,9 +14,10 @@ public class URSSManager : MonoBehaviour {
     public List<Sprite> rayas;
 
     public GameObject npcPrefab;
-    public List<NPCController> NPCControllers;
-    public List<PlayerController> PlayerControllers;
+    public List<GameObject> playersPrefabs;
 
+    public Transform playersTransform;
+    public Transform npcsTransform;
 
     public void Awake()
     {
@@ -32,18 +33,28 @@ public class URSSManager : MonoBehaviour {
             rayas = new List<Sprite>();
     }
 
+    public void Start()
+    {
+        InitWave();
+    }
+
+    public void InitWave()
+    {
+        Init();
+        SitPlayers();
+        SitNPCs();
+    }
+
     public void FillSeats()
     {
         seats = null;
-        seats = FindObjectsOfType<Seat>();
+        seats = FindObjectsOfType<Seat>(); //ya lo pilla desordenado
         playerSeats.Clear();
         for (int i = 0; i < seats.Length; i++)
         {
             if (seats[i].canBeTookedByPlayer)
                 playerSeats.Add(seats[i]);
         }
-
-        //Desordenar Listas de seats
     }
 
     public int GetFreeSeat(bool isPlayer)
@@ -56,36 +67,43 @@ public class URSSManager : MonoBehaviour {
 
     public void SitPlayers()
     {
-        for (int playerId = 0; playerId < PlayerControllers.Count; playerId++)
+        for (int playerId = 0; playerId < playersPrefabs.Count; playerId++)
         {
             int seat = GetFreeSeat(true);
-            playerSeats[seat].takenBy = PlayerControllers[playerId];
+            Seat currentSeat = seats[seat];
+
+            GameObject playerGO = Instantiate(playersPrefabs[playerId], currentSeat.transform);
+            playerGO.name = "Player_" + seat.ToString();
+            playerGO.transform.parent = playersTransform;
+            currentSeat.takenBy = playerGO.GetComponent<PlayerController>();
         }
     }
 
-    public void Reset()
+    public void Init()
     {
+        if (seats == null)
+        {
+            Debug.LogError("Error! Seats is null!");
+            return;
+        }
         for (int i = 0; i < seats.Length; i++)
         {
             Seat currentSeat = seats[i];
             if (currentSeat != null && currentSeat.takenBy != null)
                 DestroyImmediate(currentSeat.gameObject);
         }
-
-        NPCControllers.Clear();
-        PlayerControllers.Clear();
     }
 
-    public void RandomizeNPCs()
+    public void SitNPCs()
     {
-        int camisetaId = Random.Range(0, camisetas.Count);
+        int camisetaId = 2; // Random.Range(0, camisetas.Count);
         int gorroId = Random.Range(0, gorros.Count);
         int caraId = Random.Range(0, caras.Count);
         int gafaId = Random.Range(0, gafas.Count);
         int rayaId = Random.Range(0, rayas.Count);
 
         if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
-            RandomizeNPCs();
+            SitNPCs();
 
         for (int seatId = 0; seatId < seats.Length; seatId++)
         {
@@ -94,10 +112,11 @@ public class URSSManager : MonoBehaviour {
                 continue;
 
             GameObject npcObject = Instantiate(npcPrefab, currentSeat.transform);
-            npcObject.name = "NPC_" + NPCControllers.Count;
+            npcObject.name = "NPC_" + seatId;
+            npcObject.transform.parent = npcsTransform;
             NPCController npcController = npcObject.GetComponent<NPCController>();
-            npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
-            NPCControllers.Add(npcController);
+            currentSeat.takenBy = npcController;
+            //npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
         }
     }
 
