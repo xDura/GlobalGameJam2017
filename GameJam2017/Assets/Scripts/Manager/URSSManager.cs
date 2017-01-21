@@ -19,6 +19,8 @@ public class URSSManager : MonoBehaviour {
     public Transform playersTransform;
     public Transform npcsTransform;
 
+    public int waveNum = 0;
+
     public void Awake()
     {
         if (gorros == null)
@@ -32,12 +34,13 @@ public class URSSManager : MonoBehaviour {
         if (rayas == null)
             rayas = new List<Sprite>();
         FillSeats();
+        waveNum = 0;
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            InitWave();
+            nextWave();
     }
 
     public void Start()
@@ -45,11 +48,17 @@ public class URSSManager : MonoBehaviour {
         InitWave();
     }
 
-    public void InitWave()
+    private void InitWave()
     {
         Init();
         SitPlayers();
         SitNPCs();
+    }
+
+    public void nextWave()
+    {
+        waveNum = waveNum + 1;
+        InitWave();
     }
 
     public void FillSeats()
@@ -106,11 +115,12 @@ public class URSSManager : MonoBehaviour {
 
     public void SitNPCs()
     {
-        int camisetaId = 2; // Random.Range(0, camisetas.Count);
-        int gorroId = Random.Range(0, gorros.Count);
-        int caraId = Random.Range(0, caras.Count);
-        int gafaId = Random.Range(0, gafas.Count);
-        int rayaId = Random.Range(0, rayas.Count);
+        int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
+        int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 1/*camisetas.Count*/);
+        int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, gorros.Count);
+        int caraId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, caras.Count);
+        int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, gafas.Count);
+        int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, rayas.Count);
 
         if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
             SitNPCs();
