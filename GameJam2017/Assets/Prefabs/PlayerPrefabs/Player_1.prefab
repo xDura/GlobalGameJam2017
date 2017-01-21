@@ -322,7 +322,7 @@ MonoBehaviour:
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
-  light: {fileID: 0}
+  _light: {fileID: 108757098901080010}
 --- !u!212 &212157883867804878
 SpriteRenderer:
   m_ObjectHideFlags: 1
