@@ -33,7 +33,7 @@ public class LastScreenSetup : MonoBehaviour {
 
     public void Kill(int i)
     {
-        playersCross[3].SetActive(true);
+        playersCross[i].SetActive(true);
     }
 
 }

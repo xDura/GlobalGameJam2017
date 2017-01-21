@@ -358,7 +358,7 @@ public class URSSManager : MonoBehaviour {
 
         Debug.Break();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
 
         if (!p1) lastScreenSetup.Kill(0);
         if (!p2) lastScreenSetup.Kill(1);
@@ -367,6 +367,10 @@ public class URSSManager : MonoBehaviour {
 
         while (!Input.GetKeyDown(KeyCode.R))
             yield return null;
+
+        Fader.FadeOut();
+
+        yield return new WaitForSeconds(3);
 
         Start();
 
