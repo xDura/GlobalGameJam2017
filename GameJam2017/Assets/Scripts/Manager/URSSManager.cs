@@ -307,7 +307,7 @@ public class URSSManager : MonoBehaviour {
 
         int worstPlayer = 0;
         float worstDistance = controllers[worstPlayer].distanceScore;
-
+        int worstPlayerInt = 0;
         for (int i = 0; i < controllers.Count; i++)
         {
             PlayerController currentPlayer = controllers[i];
@@ -317,6 +317,7 @@ public class URSSManager : MonoBehaviour {
             {
                 worstPlayer = currentPlayer.id;
                 worstDistance = currentPlayer.distanceScore;
+                worstPlayerInt = i;
             }
         }
 
@@ -335,8 +336,8 @@ public class URSSManager : MonoBehaviour {
             yield return new WaitForSeconds(2);
         }
 
-        Vector2 _position = controllers[worstPlayer].transform.position;
-        crossHair.transform.DOMove(_position, 2f);
+        Vector2 _position = controllers[worstPlayerInt].transform.position;
+        crossHair.transform.DOMove(_position, 2f).SetEase(Ease.InOutQuint);
 
         yield return new WaitForSeconds(3);
 
@@ -344,7 +345,7 @@ public class URSSManager : MonoBehaviour {
 
         playersCross[worstPlayer].SetActive(true);
         audioController.PlayShot();
-        crossHair.transform.DOMove(mainPosition + (Vector3.up * 0.2f), 0.1f);
+        crossHair.transform.DOMove(mainPosition + (Vector3.up * 0.2f), 0.1f).SetEase(Ease.InOutQuint);
         yield return new WaitForSeconds(0.1f);
 
         crossHair.transform.DOMove(mainPosition, 0.1f);
