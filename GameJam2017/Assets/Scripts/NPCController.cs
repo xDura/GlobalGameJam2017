@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCController : Controller {
-
+    [Header("Delay")]
+    public float maxDelay;
+    public float minDelay;
     // Use this for initialization
     void Start () {
 		
@@ -13,6 +15,18 @@ public class NPCController : Controller {
 	void Update () {
 		
 	}
+
+    public override void Wave()
+    {
+        StartCoroutine(DelayedWave());
+    }
+
+    IEnumerator DelayedWave()
+    {
+        yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
+        base.Wave();
+        yield break;
+    }
 
     public void SetSprites(Sprite gorro, Sprite cara, Sprite gafas, Sprite camiseta, Sprite raya)
     {

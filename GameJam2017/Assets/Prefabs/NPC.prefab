@@ -259,6 +259,8 @@ MonoBehaviour:
   r_gafas: {fileID: 212000081430478552}
   r_camiseta: {fileID: 212631805169808992}
   r_raya: {fileID: 212782935303907160}
+  maxDelay: 0.1
+  minDelay: 0
 --- !u!212 &212000081430478552
 SpriteRenderer:
   m_ObjectHideFlags: 1
