@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 212630335482954138}
   - component: {fileID: 114684576924267412}
   - component: {fileID: 114165854319490208}
+  - component: {fileID: 82754604198869562}
   m_Layer: 0
   m_Name: Stadium
   m_TagString: Untagged
@@ -497,22 +498,6 @@ GameObject:
   - component: {fileID: 61748685319586172}
   m_Layer: 0
   m_Name: Player_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1735354298958432
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4604401037402540}
-  - component: {fileID: 82076719927137844}
-  m_Layer: 0
-  m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,19 +1023,6 @@ Transform:
   m_Father: {fileID: 4443561464234204}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4604401037402540
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1735354298958432}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4680620567036874}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4667229235994360
 Transform:
   m_ObjectHideFlags: 1
@@ -1082,7 +1054,6 @@ Transform:
   - {fileID: 4065996026079072}
   - {fileID: 4334308961692216}
   - {fileID: 4799631581704554}
-  - {fileID: 4604401037402540}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1291,16 +1262,16 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.85, y: 1}
---- !u!82 &82076719927137844
+--- !u!82 &82754604198869562
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1735354298958432}
+  m_GameObject: {fileID: 1654525177427406}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a256a3dbfb0d9494e99d40c6b28d945a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
