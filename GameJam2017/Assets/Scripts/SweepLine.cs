@@ -30,7 +30,7 @@ public class SweepLine : MonoBehaviour {
         ready = false;
     }
 
-    public void StartGame(float _velocity)
+    public void StartWave(float _velocity)
     {
         ready = true;
         dir = new Vector2(_velocity, dir.y);

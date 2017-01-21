@@ -5,6 +5,18 @@ using UnityEngine;
 public class URSSManager : MonoBehaviour {
     public static SweepLine sweepLine;
 
+    public enum STATE
+    {
+        READY = 0,
+        COUNTER = 1,
+        IN_WAVE = 2,
+        WAVE_FINISHED = 3
+
+
+    }
+
+    STATE urssState = STATE.COUNTER;
+
     public List<PlayerController> controllers;
 
     public Seat[] seats;
@@ -25,6 +37,11 @@ public class URSSManager : MonoBehaviour {
     public int waveNum = 0;
 
     public List<GameObject> playersCross;
+
+    public float currentWaitTime;
+    public float startWaveWaitTime;
+    public float endWaveWaitTime;
+    
 
     public void Awake()
     {
@@ -53,35 +70,67 @@ public class URSSManager : MonoBehaviour {
     {
         if (controllers == null) return;
 
-        for (int i = 0; i < controllers.Count; i++)
-            controllers[i].UpdateManually();
+        switch (urssState)
+        {
+            case STATE.IN_WAVE:
+                for (int i = 0; i < controllers.Count; i++)
+                    controllers[i].UpdateManually();
+                break;
+            case STATE.COUNTER:
+                UpdateStateCounter();
+                break; 
+            case STATE.WAVE_FINISHED:
+                UpdateWaveFinished();
+                break;
 
-        if (Input.GetKeyDown(KeyCode.R))
-            nextWave();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
-            sweepLine.StartGame(0.08f * (waveNum + 1));
+            StartWave();
 
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            playersCross[0].SetActive(true);
-        }
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            playersCross[1].SetActive(true);
-        }
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            playersCross[2].SetActive(true);
-        }
-        if (Input.GetKey(KeyCode.Alpha4))
-        {
-            playersCross[3].SetActive(true);
-        }
+        //if (Input.GetKey(KeyCode.Alpha1))
+        //{
+        //    playersCross[0].SetActive(true);
+        //}
+        //if (Input.GetKey(KeyCode.Alpha2))
+        //{
+        //    playersCross[1].SetActive(true);
+        //}
+        //if (Input.GetKey(KeyCode.Alpha3))
+        //{
+        //    playersCross[2].SetActive(true);
+        //}
+        //if (Input.GetKey(KeyCode.Alpha4))
+        //{
+        //    playersCross[3].SetActive(true);
+        //}
     }
 
-    public void UpdateKilledPlayers()
+    public void ChangeState(STATE newState)
     {
-        //SetFailedPlayers
+        currentWaitTime = 0f;
+        urssState = newState;
+    }
+
+    public void UpdateStateCounter()
+    {
+        currentWaitTime += Time.deltaTime;
+        if (currentWaitTime >= startWaveWaitTime)
+            StartWave();
+    }
+
+    public void StartWave()
+    {
+        sweepLine.StartWave(0.08f * (waveNum + 1));
+        ChangeState(STATE.IN_WAVE);
+    }
+
+    public void UpdateWaveFinished()
+    {
+        currentWaitTime += Time.deltaTime;
+        if (currentWaitTime >= endWaveWaitTime)
+            NextWave();
+
     }
 
     public void Start()
@@ -91,19 +140,17 @@ public class URSSManager : MonoBehaviour {
 
     private void InitWave()
     {
-        UpdateKilledPlayers();
-
-
         Init();
         SitPlayers();
         SitNPCs();
         sweepLine.Init();
     }
 
-    public void nextWave()
+    public void NextWave()
     {
         waveNum = waveNum + 1;
         InitWave();
+        ChangeState(STATE.COUNTER);
     }
 
     public void FillSeats()
@@ -175,7 +222,10 @@ public class URSSManager : MonoBehaviour {
         {
             Seat currentSeat = seats[i];
             if (currentSeat.takenBy != null)
-                DestroyImmediate(currentSeat.takenBy.gameObject);
+            {
+                Destroy(currentSeat.takenBy.gameObject);
+                currentSeat.takenBy = null;
+            }
         }
     }
 
