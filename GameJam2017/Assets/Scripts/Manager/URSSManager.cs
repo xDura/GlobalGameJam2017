@@ -187,6 +187,7 @@ public class URSSManager : MonoBehaviour {
             PlayerController currentPlayerController = playerGO.GetComponent<PlayerController>();
             currentSeat.takenBy = currentPlayerController;
             controllers.Add(currentPlayerController);
+            currentPlayerController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
             
             switch (playerId)
             {
@@ -200,7 +201,6 @@ public class URSSManager : MonoBehaviour {
                     currentPlayerController.SetKeyCode(KeyCode.P); break;
             }
 
-            currentPlayerController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
             currentPlayerController.id = playerId;
         }
     }
