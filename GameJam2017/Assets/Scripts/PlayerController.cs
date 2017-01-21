@@ -6,6 +6,8 @@ public class PlayerController : Controller {
 
     bool hasActed = false;
     float distance = 100.0f;
+    bool failed = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -22,4 +24,10 @@ public class PlayerController : Controller {
         base.Wave();
         
     }
+
+    public void KillPlayer()
+    {
+        failed = true;
+    }
+
 }

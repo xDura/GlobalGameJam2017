@@ -23,6 +23,11 @@ public class URSSManager : MonoBehaviour {
 
     public SweepLine sweepLine;
 
+    public Sprite Player_1_Cross;
+    public Sprite Player_2_Cross;
+    public Sprite Player_4_Cross;
+    public Sprite Player_5_Cross;
+
     public void Awake()
     {
         if (gorros == null)
