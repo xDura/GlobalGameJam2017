@@ -455,6 +455,11 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 1740455555
       objectReference: {fileID: 0}
+    - target: {fileID: 114684576924267412, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 511439511}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
   m_IsPrefabParent: 0
@@ -1172,6 +1177,11 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &511439511 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1922833758650028, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 176916434}
 --- !u!1 &520313136
 GameObject:
   m_ObjectHideFlags: 0

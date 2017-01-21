@@ -54,6 +54,9 @@ public class URSSManager : MonoBehaviour {
 
     public GameObject bloodPrefab;
     public GameObject currentBlood;
+    public SpriteRenderer ball;
+
+    public SpriteRenderer backGround;
 
     public void Awake()
     {
@@ -113,6 +116,7 @@ public class URSSManager : MonoBehaviour {
     public void StartWave()
     {
         sweepLine.StartWave(0.08f);
+        ball.enabled = true;
         ChangeState(STATE.IN_WAVE);
     }
 
@@ -202,7 +206,7 @@ public class URSSManager : MonoBehaviour {
                 case 0:
                     currentPlayerController.SetKeyCode(KeyCode.Space); break;
                 case 1:
-                    currentPlayerController.SetKeyCode(KeyCode.KeypadEnter); break;
+                    currentPlayerController.SetKeyCode(KeyCode.Return); break;
                 case 2:
                     currentPlayerController.SetKeyCode(KeyCode.Q); break;
                 case 3:
@@ -327,6 +331,7 @@ public class URSSManager : MonoBehaviour {
         yield return new WaitForSeconds(endWaveWaitTime);
 
         currentWaitTime = 0f;
+        ball.enabled = false;
         mainLight.DOIntensity(0.0f, 1f);
         for (int i = 0; i < controllers.Count; i++)
             controllers[i].OpenLight();
@@ -352,12 +357,16 @@ public class URSSManager : MonoBehaviour {
         else
             currentBlood.GetComponent<Animator>().SetTrigger("blood");
 
+        Color mainColor = backGround.color;
+
         playersCross[worstPlayer].SetActive(true);
         audioController.PlayShot();
         crossHair.transform.DOMove(mainPosition + (Vector3.up * 0.2f), 0.1f).SetEase(Ease.InOutQuint);
+        backGround.DOColor(Color.red, 0.1f);
         yield return new WaitForSeconds(0.1f);
 
         crossHair.transform.DOMove(mainPosition, 0.1f);
+        backGround.DOColor(mainColor, 0.4f);
 
         yield return new WaitForSeconds(2f);
 
@@ -386,6 +395,7 @@ public class URSSManager : MonoBehaviour {
     {
         Init();
 
+        ball.enabled = false;
         ChangeState(STATE.END_GAME);
 
         bool p1, p2, p3, p4;
