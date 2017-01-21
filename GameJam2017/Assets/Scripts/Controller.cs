@@ -11,11 +11,6 @@ public class Controller : MonoBehaviour {
     public bool wentUp = false;
     public bool hasWaved = false;
 
-    void Awake()
-    {
-        startPos = transform.position;
-    }
-
     public virtual void Wave()
     {
         hasWaved = true;
@@ -29,6 +24,7 @@ public class Controller : MonoBehaviour {
 
     public IEnumerator WaveCoroutine()
     {
+        startPos = transform.position;
         maxPos = transform.position;
         maxPos.y += waveOffset;
 
