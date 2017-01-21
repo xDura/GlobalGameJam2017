@@ -23,10 +23,7 @@ public class URSSManager : MonoBehaviour {
 
     public SweepLine sweepLine;
 
-    public Sprite Player_1_Cross;
-    public Sprite Player_2_Cross;
-    public Sprite Player_4_Cross;
-    public Sprite Player_5_Cross;
+    public List<GameObject> playersCross;
 
     public void Awake()
     {
@@ -50,6 +47,15 @@ public class URSSManager : MonoBehaviour {
             nextWave();
         if (Input.GetKeyDown(KeyCode.Space))
             sweepLine.StartGame(0.08f * (waveNum+1) );
+        if (Input.GetKey(KeyCode.K))
+        {
+
+        }
+    }
+
+    public void UpdateKilledPlayers()
+    {
+        //for(int i = 0; i < players)
     }
 
     public void Start()
