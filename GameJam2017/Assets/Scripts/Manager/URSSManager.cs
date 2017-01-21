@@ -31,6 +31,13 @@ public class URSSManager : MonoBehaviour {
             camisetas = new List<Sprite>();
         if (rayas == null)
             rayas = new List<Sprite>();
+        FillSeats();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            InitWave();
     }
 
     public void Start()
@@ -49,6 +56,8 @@ public class URSSManager : MonoBehaviour {
     {
         seats = null;
         seats = FindObjectsOfType<Seat>(); //ya lo pilla desordenado
+        if (playerSeats == null)
+            playerSeats = new List<Seat>();
         playerSeats.Clear();
         for (int i = 0; i < seats.Length; i++)
         {
@@ -57,11 +66,11 @@ public class URSSManager : MonoBehaviour {
         }
     }
 
-    public int GetFreeSeat(bool isPlayer)
+    public int GetFreePlayerSeat()
     {
         int seatId = Random.Range(0, playerSeats.Count);
         if (playerSeats[seatId].takenBy != null)
-            GetFreeSeat(isPlayer);
+            return GetFreePlayerSeat();
         return seatId;
     }
 
@@ -69,12 +78,13 @@ public class URSSManager : MonoBehaviour {
     {
         for (int playerId = 0; playerId < playersPrefabs.Count; playerId++)
         {
-            int seat = GetFreeSeat(true);
-            Seat currentSeat = seats[seat];
+            int seat = GetFreePlayerSeat();
+            Seat currentSeat = playerSeats[seat];
 
             GameObject playerGO = Instantiate(playersPrefabs[playerId], currentSeat.transform);
             playerGO.name = "Player_" + seat.ToString();
             playerGO.transform.parent = playersTransform;
+            playerGO.transform.position = currentSeat.transform.position;
             currentSeat.takenBy = playerGO.GetComponent<PlayerController>();
         }
     }
@@ -89,8 +99,8 @@ public class URSSManager : MonoBehaviour {
         for (int i = 0; i < seats.Length; i++)
         {
             Seat currentSeat = seats[i];
-            if (currentSeat != null && currentSeat.takenBy != null)
-                DestroyImmediate(currentSeat.gameObject);
+            if (currentSeat.takenBy != null)
+                DestroyImmediate(currentSeat.takenBy.gameObject);
         }
     }
 
@@ -114,6 +124,7 @@ public class URSSManager : MonoBehaviour {
             GameObject npcObject = Instantiate(npcPrefab, currentSeat.transform);
             npcObject.name = "NPC_" + seatId;
             npcObject.transform.parent = npcsTransform;
+            npcObject.transform.position = currentSeat.transform.position;
             NPCController npcController = npcObject.GetComponent<NPCController>();
             currentSeat.takenBy = npcController;
             //npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
