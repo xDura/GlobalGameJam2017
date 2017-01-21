@@ -374,6 +374,30 @@ Prefab:
       propertyPath: shotWaitTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212589436079601680, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ba7497b21bb44145a2af66d752c7a34,
+        type: 3}
+    - target: {fileID: 212768218141706752, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ba7497b21bb44145a2af66d752c7a34,
+        type: 3}
+    - target: {fileID: 212178472635161906, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ba7497b21bb44145a2af66d752c7a34,
+        type: 3}
+    - target: {fileID: 212759115716631692, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ba7497b21bb44145a2af66d752c7a34,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
   m_IsPrefabParent: 0
