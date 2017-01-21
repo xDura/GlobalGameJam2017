@@ -52,6 +52,9 @@ public class URSSManager : MonoBehaviour {
 
     public GameObject crossHair;
 
+    public GameObject bloodPrefab;
+    public GameObject currentBlood;
+
     public void Awake()
     {
         if (gorros == null)
@@ -342,6 +345,12 @@ public class URSSManager : MonoBehaviour {
         yield return new WaitForSeconds(3);
 
         Vector3 mainPosition = crossHair.transform.position;
+        currentBlood = GameObject.Instantiate(bloodPrefab, mainPosition, Quaternion.identity);
+
+        if(Random.Range(0, 1) == 1)
+            currentBlood.GetComponent<Animator>().SetTrigger("blood2");
+        else
+            currentBlood.GetComponent<Animator>().SetTrigger("blood");
 
         playersCross[worstPlayer].SetActive(true);
         audioController.PlayShot();
