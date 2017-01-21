@@ -1779,6 +1779,7 @@ MonoBehaviour:
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
+  _light: {fileID: 0}
 --- !u!114 &114165854319490208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1816,6 +1817,7 @@ MonoBehaviour:
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
+  _light: {fileID: 0}
 --- !u!114 &114631197356720872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1840,6 +1842,7 @@ MonoBehaviour:
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
+  _light: {fileID: 0}
 --- !u!114 &114684576924267412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1900,7 +1903,7 @@ MonoBehaviour:
   - {fileID: 1385392847481494}
   currentWaitTime: 0
   startWaveWaitTime: 3
-  endWaveWaitTime: 5
+  endWaveWaitTime: 4
   shotWaitTime: 2
   audioController: {fileID: 114165854319490208}
   mainLight: {fileID: 0}
@@ -1928,6 +1931,7 @@ MonoBehaviour:
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
+  _light: {fileID: 0}
 --- !u!212 &212020645239481274
 SpriteRenderer:
   m_ObjectHideFlags: 1

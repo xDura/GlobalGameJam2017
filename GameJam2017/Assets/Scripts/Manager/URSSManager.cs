@@ -297,23 +297,17 @@ public class URSSManager : MonoBehaviour {
             }
         }
 
+        yield return new WaitForSeconds(endWaveWaitTime);
+
         currentWaitTime = 0f;
         mainLight.DOIntensity(0.0f, 1f);
         for (int i = 0; i < controllers.Count; i++)
             controllers[i].OpenLight();
-        while (currentWaitTime <= shotWaitTime)
-        {
-            currentWaitTime += Time.deltaTime;
-            
-            yield return null;
-        }
 
+        yield return new WaitForSeconds(shotWaitTime);
 
         playersCross[worstPlayer].SetActive(true);
         audioController.PlayShot();
-
-
-        yield return new WaitForSeconds(endWaveWaitTime);
 
         yield return new WaitForSeconds(2);
 
@@ -331,13 +325,7 @@ public class URSSManager : MonoBehaviour {
         mainLight.DOIntensity(1.0f, 1f);
 
         Fader.FadeIn();
-        currentWaitTime = 0f;
-        while (currentWaitTime <= startWaveWaitTime)
-        {
-            currentWaitTime += Time.deltaTime;
-            yield return null;
-        }
-        currentWaitTime = 0f;
+        yield return new WaitForSeconds(startWaveWaitTime);
 
         StartWave();
 
