@@ -44,7 +44,7 @@ public class SweepLine : MonoBehaviour {
 
         if(controller is NPCController)
         {
-            Debug.Log("NPCController");
+            //Debug.Log("NPCController");
             controller.Wave();
         }
     }
