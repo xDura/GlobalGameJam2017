@@ -1486,6 +1486,7 @@ MonoBehaviour:
   currentWaitTime: 0
   startWaveWaitTime: 3
   endWaveWaitTime: 5
+  shotWaitTime: 2
 --- !u!114 &114808397859793256
 MonoBehaviour:
   m_ObjectHideFlags: 1

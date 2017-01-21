@@ -369,6 +369,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114684576924267412, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: shotWaitTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
   m_IsPrefabParent: 0
@@ -544,7 +549,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 596333618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49313655, y: 0.30370438, z: 0}
+  m_LocalPosition: {x: 0.96, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1147347208}

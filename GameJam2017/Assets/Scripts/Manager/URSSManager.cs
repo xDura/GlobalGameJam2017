@@ -40,6 +40,7 @@ public class URSSManager : MonoBehaviour {
     public float currentWaitTime;
     public float startWaveWaitTime;
     public float endWaveWaitTime;
+    public float shotWaitTime;
     
 
     public void Awake()
@@ -285,14 +286,21 @@ public class URSSManager : MonoBehaviour {
             }
         }
 
-        playersCross[worstPlayer].SetActive(true);
+        currentWaitTime = 0f;
+        while (currentWaitTime <= shotWaitTime)
+        {
+            currentWaitTime += Time.deltaTime;
+            yield return null;
+        }
 
+        playersCross[worstPlayer].SetActive(true);
 
         while (currentWaitTime <= endWaveWaitTime)
         {
             currentWaitTime += Time.deltaTime;
             yield return null;
         }
+        currentWaitTime = 0f;
 
         NextWave();
         yield return null;
@@ -302,11 +310,13 @@ public class URSSManager : MonoBehaviour {
     {
         ChangeState(STATE.COUNTER);
 
+        currentWaitTime = 0f;
         while (currentWaitTime <= startWaveWaitTime)
         {
             currentWaitTime += Time.deltaTime;
             yield return null;
         }
+        currentWaitTime = 0f;
 
         StartWave();
 
