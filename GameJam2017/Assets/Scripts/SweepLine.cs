@@ -17,7 +17,6 @@ public class SweepLine : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Entering");
         if (!collider.GetComponent<Controller>()) return;
 
         Controller controller = collider.GetComponent<Controller>();
@@ -25,10 +24,12 @@ public class SweepLine : MonoBehaviour {
         if(controller is NPCController)
         {
             Debug.Log("NPCController");
+            controller.Wave();
         }
         else if(controller is PlayerController)
         {
             Debug.Log("PlayerController");
+            controller.Wave();
         }
     }
 }

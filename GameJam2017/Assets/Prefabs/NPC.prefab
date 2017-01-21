@@ -245,6 +245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ca6ae005d048b4abbf2b2527014c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveOffset: 2
+  startPos: {x: 0, y: 0}
+  wentUp: 0
+  hasWaved: 0
 --- !u!212 &212000081430478552
 SpriteRenderer:
   m_ObjectHideFlags: 1
