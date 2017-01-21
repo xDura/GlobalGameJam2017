@@ -88,22 +88,6 @@ public class URSSManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
             StartWave();
 
-        //if (Input.GetKey(KeyCode.Alpha1))
-        //{
-        //    playersCross[0].SetActive(true);
-        //}
-        //if (Input.GetKey(KeyCode.Alpha2))
-        //{
-        //    playersCross[1].SetActive(true);
-        //}
-        //if (Input.GetKey(KeyCode.Alpha3))
-        //{
-        //    playersCross[2].SetActive(true);
-        //}
-        //if (Input.GetKey(KeyCode.Alpha4))
-        //{
-        //    playersCross[3].SetActive(true);
-        //}
     }
 
     public void ChangeState(STATE newState)
@@ -133,6 +117,8 @@ public class URSSManager : MonoBehaviour {
 
         playersCross[worstPlayer].SetActive(true);
 
+        //ToDo: Dura Pot esser aqui
+
         ChangeState(URSSManager.STATE.WAVE_FINISHED);
     }
 
@@ -154,6 +140,8 @@ public class URSSManager : MonoBehaviour {
         currentWaitTime += Time.deltaTime;
         if (currentWaitTime >= endWaveWaitTime)
             NextWave();
+
+        //ToDo: Dura Pot esser aqui també
 
     }
 
