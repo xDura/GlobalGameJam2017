@@ -10,7 +10,8 @@ public class URSSManager : MonoBehaviour {
         READY = 0,
         COUNTER = 1,
         IN_WAVE = 2,
-        WAVE_FINISHED = 3
+        WAVE_FINISHED = 3,
+        END_GAME = 4
 
 
     }
