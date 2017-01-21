@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class URSSManager : MonoBehaviour {
+    static SweepLine sweepLine;
 
     public Seat[] seats;
     public List<Seat> playerSeats;
@@ -21,8 +22,6 @@ public class URSSManager : MonoBehaviour {
 
     public int waveNum = 0;
 
-    public SweepLine sweepLine;
-
     public List<GameObject> playersCross;
 
     public void Awake()
@@ -37,6 +36,10 @@ public class URSSManager : MonoBehaviour {
             camisetas = new List<Sprite>();
         if (rayas == null)
             rayas = new List<Sprite>();
+
+        if (sweepLine == null)
+            sweepLine = FindObjectOfType<SweepLine>();
+
         FillSeats();
         waveNum = 0;
     }
