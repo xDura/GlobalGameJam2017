@@ -60,7 +60,7 @@ public class PlayerController : Controller {
 
     public void CloseLight()
     {
-        _light.DOIntensity(2.0f, 1f);
+        _light.DOIntensity(4.0f, 1f);
     }
 
 }
