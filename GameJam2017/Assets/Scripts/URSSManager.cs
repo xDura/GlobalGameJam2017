@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class URSSManager : MonoBehaviour {
 
-    public int players = 4;
     public Seat[] seats;
     public List<Seat> playerSeats;
 
-    public List<Sprite> gorro;
-    public List<Sprite> cara;
+    public List<Sprite> gorros;
+    public List<Sprite> caras;
     public List<Sprite> gafas;
-    public List<Sprite> camiseta;
-    public List<Sprite> raya;
+    public List<Sprite> camisetas;
+    public List<Sprite> rayas;
+
+    public List<NPCController> NPCConrtollers;
+    public List<PlayerController> PlayerControllers;
+
+
+    public void Awake()
+    {
+        if (gorros == null)
+            gorros = new List<Sprite>();
+        if (caras == null)
+            caras = new List<Sprite>();
+        if (gafas == null)
+            gafas = new List<Sprite>();
+        if (camisetas == null)
+            camisetas = new List<Sprite>();
+        if (rayas == null)
+            rayas = new List<Sprite>();
+    }
 
     public void FillSeats()
     {
@@ -24,12 +41,53 @@ public class URSSManager : MonoBehaviour {
             if (seats[i].canBeTookedByPlayer)
                 playerSeats.Add(seats[i]);
         }
+
+        //Desordenar Listas de seats
     }
 
-    public void RandomizePlayers()
+    public int GetFreeSeat(bool isPlayer)
     {
-        int camiseta = Random.Range(0, 4);
+        int seatId = Random.Range(0, playerSeats.Count);
+        if (playerSeats[seatId].takenBy != null)
+            GetFreeSeat(isPlayer);
+        return seatId;
     }
+
+    public void SitPlayers()
+    {
+        for (int playerId = 0; playerId < PlayerControllers.Count; playerId++)
+        {
+            int seat = GetFreeSeat(true);
+            playerSeats[seat].takenBy = PlayerControllers[playerId];
+        }
+    }
+
+    public void RandomizeNPCs()
+    {
+        int camisetaId = Random.Range(0, camisetas.Count);
+        int gorroId = Random.Range(0, gorros.Count);
+        int caraId = Random.Range(0, caras.Count);
+        int gafaId = Random.Range(0, gafas.Count);
+        int rayaId = Random.Range(0, rayas.Count);
+
+        if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
+            RandomizeNPCs();
+
+        for(int i = )
         
+    }
+
+    public bool CheckIdsConsistency(int camiseta, int gorro, int cara, int gafa, int raya)
+    {
+        if (camiseta != gorro)
+            return true;
+        if (camiseta != cara)
+            return true;
+        if (camiseta != gafa)
+            return true;
+        if (gafa != raya)
+            return true;
+        return false;
+    }
 
 }
