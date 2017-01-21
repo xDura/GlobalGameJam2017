@@ -7,6 +7,7 @@ public class AudioController : MonoBehaviour {
     public AudioSource Stadium_Ambience;
     public AudioSource Shot;
     public AudioSource Jump;
+    public AudioSource tensionSong;
 
     // Use this for initialization
     void Start () {

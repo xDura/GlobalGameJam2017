@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 82775566335691210}
   - component: {fileID: 82210716613332390}
   - component: {fileID: 82140173545176652}
+  - component: {fileID: 82546967672236118}
   m_Layer: 0
   m_Name: Stadium
   m_TagString: Untagged
@@ -2114,6 +2115,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82546967672236118
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654525177427406}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a38ccc432985d4a45a5f3d6626d9b3b1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82754604198869562
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2346,6 +2427,8 @@ MonoBehaviour:
   id: -1
   _light: {fileID: 0}
   audioController: {fileID: 0}
+  bloodPivot: {fileID: 0}
+  currentBlood: {fileID: 0}
 --- !u!114 &114165854319490208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2360,6 +2443,7 @@ MonoBehaviour:
   Stadium_Ambience: {fileID: 82754604198869562}
   Shot: {fileID: 82775566335691210}
   Jump: {fileID: 82140173545176652}
+  tensionSong: {fileID: 82546967672236118}
 --- !u!114 &114294687920130476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2390,6 +2474,8 @@ MonoBehaviour:
   id: -1
   _light: {fileID: 0}
   audioController: {fileID: 0}
+  bloodPivot: {fileID: 0}
+  currentBlood: {fileID: 0}
 --- !u!114 &114334686552830926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2571,6 +2657,8 @@ MonoBehaviour:
   id: -1
   _light: {fileID: 0}
   audioController: {fileID: 0}
+  bloodPivot: {fileID: 0}
+  currentBlood: {fileID: 0}
 --- !u!114 &114631474054410048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2728,6 +2816,8 @@ MonoBehaviour:
   id: -1
   _light: {fileID: 0}
   audioController: {fileID: 0}
+  bloodPivot: {fileID: 0}
+  currentBlood: {fileID: 0}
 --- !u!114 &114812752582902598
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -148,6 +148,8 @@ public class URSSManager : MonoBehaviour {
         SitPlayers();
         SitNPCs();
         sweepLine.Init();
+        audioController.Stadium_Ambience.DOFade(0.6f, 0.5f);
+        audioController.tensionSong.DOFade(0.0f, 0.5f);
     }
 
     public void NextWave()
@@ -339,6 +341,9 @@ public class URSSManager : MonoBehaviour {
         currentWaitTime = 0f;
         ball.enabled = false;
         mainLight.DOIntensity(0.0f, 1f);
+        audioController.Stadium_Ambience.DOFade(0.0f, 0.5f);
+        audioController.tensionSong.Play();
+        audioController.tensionSong.DOFade(0.6f, 0.5f);
         for (int i = 0; i < controllers.Count; i++)
             controllers[i].OpenLight();
 
@@ -361,6 +366,7 @@ public class URSSManager : MonoBehaviour {
         Color mainColor = backGround.color;
 
         playersCross[worstPlayer].SetActive(true);
+        audioController.tensionSong.Stop();
         audioController.PlayShot();
         crossHair.transform.DOMove(mainPosition + (Vector3.up * 0.2f), 0.1f).SetEase(Ease.InOutQuint);
         backGround.DOColor(Color.red, 0.1f);
@@ -415,7 +421,7 @@ public class URSSManager : MonoBehaviour {
 
         Fader.FadeIn();
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
 
         if (!p1) lastScreenSetup.Kill(0);
         if (!p2) lastScreenSetup.Kill(1);
