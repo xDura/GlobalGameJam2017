@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class NPCController : Controller {
 
-	// Use this for initialization
-	void Start () {
+    public SpriteRenderer r_cara;
+    public SpriteRenderer r_gorro;
+    public SpriteRenderer r_gafas;
+    public SpriteRenderer r_camiseta;
+    public SpriteRenderer r_raya;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,7 +21,11 @@ public class NPCController : Controller {
 
     public void SetSprites(Sprite gorro, Sprite cara, Sprite gafas, Sprite camiseta, Sprite raya)
     {
-
+        r_cara.sprite = cara;
+        r_gorro.sprite = gorro;
+        r_gafas.sprite = gafas;
+        r_camiseta.sprite = camiseta;
+        r_raya. sprite = raya;
     }
 
 }

@@ -211,7 +211,7 @@ public class URSSManager : MonoBehaviour {
             npcObject.transform.position = currentSeat.transform.position;
             NPCController npcController = npcObject.GetComponent<NPCController>();
             currentSeat.takenBy = npcController;
-            //npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
+            npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
         }
     }
 
