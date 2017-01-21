@@ -57,7 +57,7 @@ public class URSSManager : MonoBehaviour {
 
     public void nextWave()
     {
-        waveNum = waveNum + 1;
+        //waveNum = waveNum + 1;
         InitWave();
     }
 
@@ -115,22 +115,26 @@ public class URSSManager : MonoBehaviour {
 
     public void SitNPCs()
     {
-        //Random.InitState((int)System.DateTime.Now.Ticks);
-        int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
-        currentWave = Mathf.Clamp(currentWave, 0, 4);
-        int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*camisetas.Count*/);
-        int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*gorros.Count*/);
-        int caraId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*caras.Count*/);
-        int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*gafas.Count*/);
-        int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*rayas.Count*/);
-
-        if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
-            SitNPCs();
-
-        Debug.Log("Ints generated: " + camisetaId + gorroId + caraId + gafaId + rayaId);
-
         for (int seatId = 0; seatId < seats.Length; seatId++)
         {
+            int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
+            currentWave = Mathf.Clamp(currentWave, 0, 4);
+            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*camisetas.Count*/);
+            int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*gorros.Count*/);
+            int caraId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*caras.Count*/);
+            int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*gafas.Count*/);
+            int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*rayas.Count*/);
+
+            if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
+            {
+                camisetaId = 0;
+                gorroId = 1;
+                caraId = 2;
+                gafaId = 3;
+                rayaId = 4;
+            }
+
+            Debug.Log("Ints generated: " + camisetaId + gorroId + caraId + gafaId + rayaId);
             Seat currentSeat = seats[seatId];
             if (currentSeat.takenBy != null)
                 continue;
