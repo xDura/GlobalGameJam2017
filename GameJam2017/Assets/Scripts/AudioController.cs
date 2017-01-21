@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        AudioSource Stadium_Ambience = GetComponent<AudioSource>();
+    public AudioSource Stadium_Ambience;
+    public AudioSource Shot;
+
+    // Use this for initialization
+    void Start () {
         Stadium_Ambience.Play();
 	}
 	
@@ -14,4 +16,9 @@ public class AudioController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void PlayShot()
+    {
+        Shot.Play();
+    }
 }

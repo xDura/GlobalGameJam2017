@@ -41,7 +41,8 @@ public class URSSManager : MonoBehaviour {
     public float startWaveWaitTime;
     public float endWaveWaitTime;
     public float shotWaitTime;
-    
+
+    public AudioController audioController;
 
     public void Awake()
     {
@@ -293,7 +294,10 @@ public class URSSManager : MonoBehaviour {
             yield return null;
         }
 
+
         playersCross[worstPlayer].SetActive(true);
+        audioController.PlayShot();
+
 
         while (currentWaitTime <= endWaveWaitTime)
         {
