@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class URSSManager : MonoBehaviour {
     public static SweepLine sweepLine;
@@ -297,10 +298,13 @@ public class URSSManager : MonoBehaviour {
         }
 
         currentWaitTime = 0f;
+        mainLight.DOIntensity(0.0f, 1f);
+        for (int i = 0; i < controllers.Count; i++)
+            controllers[i].OpenLight();
         while (currentWaitTime <= shotWaitTime)
         {
             currentWaitTime += Time.deltaTime;
-            mainLight.intensity -= Time.deltaTime;
+            
             yield return null;
         }
 
@@ -323,6 +327,7 @@ public class URSSManager : MonoBehaviour {
     IEnumerator WaitForStartWave()
     {
         ChangeState(STATE.COUNTER);
+        mainLight.DOIntensity(1.0f, 1f);
 
         currentWaitTime = 0f;
         while (currentWaitTime <= startWaveWaitTime)

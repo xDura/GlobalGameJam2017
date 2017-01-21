@@ -16,7 +16,7 @@ public class PlayerController : Controller {
     Vector2 debugSweepLinePos;
     KeyCode keyCode = KeyCode.Space;
 
-    public Light light;
+    public Light _light;
 
     public void SetKeyCode(KeyCode _keyCode)
     {
@@ -55,12 +55,12 @@ public class PlayerController : Controller {
 
     public void OpenLight()
     {
-        light.DOIntensity(1.0f, 1f);
+        _light.DOIntensity(1.0f, 1f);
     }
 
     public void CloseLight()
     {
-        light.DOIntensity(0.0f, 1f);
+        _light.DOIntensity(2.0f, 1f);
     }
 
 }
