@@ -250,6 +250,12 @@ MonoBehaviour:
   clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  r_cara: {fileID: 212626600156307224}
+  r_gorro: {fileID: 212125675108005290}
+  r_gafas: {fileID: 212206701022024662}
+  r_camiseta: {fileID: 212366535372096130}
+  r_raya: {fileID: 212061036891272882}
+  distanceScore: 3.4028235e+38
   debugInfo: 1
 --- !u!212 &212061036891272882
 SpriteRenderer:
