@@ -384,10 +384,38 @@ Prefab:
       propertyPath: StadiumObjects.Array.data[1]
       value: 
       objectReference: {fileID: 596333618}
+    - target: {fileID: 1783344769619106, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212835562289146792, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
         type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1740455555
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f939fdce76fa66143ab8f1d419231bd3,
+        type: 3}
+    - target: {fileID: 4822319520706722, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822319520706722, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212835562289146792, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212835562289146792, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.2794118
+      objectReference: {fileID: 0}
+    - target: {fileID: 212835562289146792, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.2794118
       objectReference: {fileID: 0}
     - target: {fileID: 4077247464770744, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
       propertyPath: m_RootOrder
