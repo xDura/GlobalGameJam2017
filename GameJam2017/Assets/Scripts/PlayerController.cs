@@ -63,12 +63,12 @@ public class PlayerController : Controller {
 
     public void OpenLight()
     {
-        _light.DOIntensity(1.0f, 1f);
+        _light.DOIntensity(2.5f, 1f);
     }
 
     public void CloseLight()
     {
-        _light.DOIntensity(4.0f, 1f);
+        _light.DOIntensity(0.0f, 1f);
     }
 
 }
