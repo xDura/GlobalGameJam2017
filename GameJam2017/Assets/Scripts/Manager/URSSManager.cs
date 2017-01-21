@@ -207,7 +207,7 @@ public class URSSManager : MonoBehaviour {
                     currentPlayerController.SetKeyCode(KeyCode.P); break;
             }
 
-
+            currentPlayerController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
         }
     }
 
@@ -250,7 +250,7 @@ public class URSSManager : MonoBehaviour {
                 rayaId = 4;
             }
 
-            Debug.Log("Ints generated: " + camisetaId + gorroId + caraId + gafaId + rayaId);
+            //Debug.Log("Ints generated: " + camisetaId + gorroId + caraId + gafaId + rayaId);
             Seat currentSeat = seats[seatId];
             if (currentSeat.takenBy != null)
                 continue;
@@ -262,6 +262,7 @@ public class URSSManager : MonoBehaviour {
             NPCController npcController = npcObject.GetComponent<NPCController>();
             currentSeat.takenBy = npcController;
             npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
+            npcController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
         }
     }
 

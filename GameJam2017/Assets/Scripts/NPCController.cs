@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class NPCController : Controller {
 
-    public SpriteRenderer r_cara;
-    public SpriteRenderer r_gorro;
-    public SpriteRenderer r_gafas;
-    public SpriteRenderer r_camiseta;
-    public SpriteRenderer r_raya;
     // Use this for initialization
     void Start () {
 		

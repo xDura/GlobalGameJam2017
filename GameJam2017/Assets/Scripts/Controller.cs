@@ -12,6 +12,14 @@ public class Controller : MonoBehaviour {
     public bool wentUp = false;
     public bool hasWaved = false;
 
+    //assets
+    [Header("Assets")]
+    public SpriteRenderer r_cara;
+    public SpriteRenderer r_gorro;
+    public SpriteRenderer r_gafas;
+    public SpriteRenderer r_camiseta;
+    public SpriteRenderer r_raya;
+
     public virtual void Wave()
     {
         hasWaved = true;
@@ -48,5 +56,14 @@ public class Controller : MonoBehaviour {
         transform.position = startPos;
 
         yield break;
+    }
+
+    public void SetLayer(string layer)
+    {
+        r_cara.sortingLayerName = layer;
+        r_gorro.sortingLayerName = layer;
+        r_gafas.sortingLayerName = layer;
+        r_camiseta.sortingLayerName = layer;
+        r_raya.sortingLayerName = layer;
     }
 }
