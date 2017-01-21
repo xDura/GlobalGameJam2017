@@ -313,12 +313,13 @@ public class URSSManager : MonoBehaviour {
         audioController.PlayShot();
 
 
-        while (currentWaitTime <= endWaveWaitTime)
-        {
-            currentWaitTime += Time.deltaTime;
-            yield return null;
-        }
-        currentWaitTime = 0f;
+        yield return new WaitForSeconds(endWaveWaitTime);
+
+        yield return new WaitForSeconds(2);
+
+        Fader.FadeOut();
+
+        yield return new WaitForSeconds(endWaveWaitTime);
 
         NextWave();
         yield return null;
@@ -329,6 +330,7 @@ public class URSSManager : MonoBehaviour {
         ChangeState(STATE.COUNTER);
         mainLight.DOIntensity(1.0f, 1f);
 
+        Fader.FadeIn();
         currentWaitTime = 0f;
         while (currentWaitTime <= startWaveWaitTime)
         {
