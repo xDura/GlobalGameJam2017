@@ -13,4 +13,9 @@ public class SweepLine : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (!collider.GetComponent<Controller>()) return;
+    }
 }
