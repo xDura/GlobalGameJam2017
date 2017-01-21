@@ -50,6 +50,8 @@ public class URSSManager : MonoBehaviour {
     public LastScreenSetup lastScreenSetup;
     public List<GameObject> StadiumObjects;
 
+    public GameObject crossHair;
+
     public void Awake()
     {
         if (gorros == null)
@@ -232,11 +234,11 @@ public class URSSManager : MonoBehaviour {
         {
             int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
             currentWave = Mathf.Clamp(currentWave, 0, 4);
-            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, camisetas.Count);
-            int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, gorros.Count);
-            int caraId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, caras.Count);
-            int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, gafas.Count);
-            int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, rayas.Count);
+            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, camisetas.Count);
+            int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, gorros.Count);
+            int caraId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, caras.Count);
+            int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, gafas.Count);
+            int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, rayas.Count);
 
             if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
             {
@@ -325,9 +327,19 @@ public class URSSManager : MonoBehaviour {
         for (int i = 0; i < controllers.Count; i++)
             controllers[i].OpenLight();
 
-        yield return new WaitForSeconds(shotWaitTime);
+        crossHair.SetActive(true);
+        for (int i = 0; i < controllers.Count; i++)
+        {
+            Vector2 position = controllers[Random.Range(0, controllers.Count)].transform.position;
+            crossHair.transform.DOMove(position, 2f);
+            yield return new WaitForSeconds(2);
+        }
+
 
         playersCross[worstPlayer].SetActive(true);
+        Vector2 _position = controllers[worstPlayer].transform.position;
+        crossHair.transform.DOMove(_position, 2f);
+        yield return new WaitForSeconds(2);
         audioController.PlayShot();
 
         yield return new WaitForSeconds(2);
@@ -335,6 +347,7 @@ public class URSSManager : MonoBehaviour {
         Fader.FadeOut();
 
         yield return new WaitForSeconds(endWaveWaitTime);
+        crossHair.SetActive(false);
 
         NextWave();
         yield return null;

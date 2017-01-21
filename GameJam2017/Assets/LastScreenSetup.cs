@@ -62,8 +62,8 @@ public class LastScreenSetup : MonoBehaviour {
 
     public void RestartGame()
     {
-        if(!reseted)
-            urssManager.Start();
+        if (!reseted)
+            StartCoroutine(RestartGameCoroutien());
         reseted = true;
     }
 

@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 114165854319490208}
   - component: {fileID: 82754604198869562}
   - component: {fileID: 82775566335691210}
+  - component: {fileID: 82210716613332390}
   m_Layer: 0
   m_Name: Stadium
   m_TagString: Untagged
@@ -1511,6 +1512,86 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.85, y: 1}
+--- !u!82 &82210716613332390
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654525177427406}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 554b0be51a36dc841bad89c2b0bbf1bc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82754604198869562
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1522,7 +1603,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a256a3dbfb0d9494e99d40c6b28d945a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1766,11 +1847,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6876a73270c62da4fb9997bf0c5a49fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveOffset: 2
   startPos: {x: 0, y: 0}
-  clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  timeUp: 0
+  timeDown: 0
+  maxOffset: 0
+  minOffset: 0
+  easeJumpType: 0
+  easeFallType: 0
   r_cara: {fileID: 0}
   r_gorro: {fileID: 0}
   r_gafas: {fileID: 0}
@@ -1780,6 +1865,7 @@ MonoBehaviour:
   debugInfo: 1
   id: -1
   _light: {fileID: 0}
+  audioController: {fileID: 0}
 --- !u!114 &114165854319490208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1793,6 +1879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stadium_Ambience: {fileID: 82754604198869562}
   Shot: {fileID: 82775566335691210}
+  Jump: {fileID: 82210716613332390}
 --- !u!114 &114294687920130476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1804,11 +1891,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6876a73270c62da4fb9997bf0c5a49fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveOffset: 2
   startPos: {x: 0, y: 0}
-  clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  timeUp: 0
+  timeDown: 0
+  maxOffset: 0
+  minOffset: 0
+  easeJumpType: 0
+  easeFallType: 0
   r_cara: {fileID: 0}
   r_gorro: {fileID: 0}
   r_gafas: {fileID: 0}
@@ -1818,6 +1909,7 @@ MonoBehaviour:
   debugInfo: 1
   id: -1
   _light: {fileID: 0}
+  audioController: {fileID: 0}
 --- !u!114 &114631197356720872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1829,11 +1921,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6876a73270c62da4fb9997bf0c5a49fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveOffset: 2
   startPos: {x: 0, y: 0}
-  clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  timeUp: 0
+  timeDown: 0
+  maxOffset: 0
+  minOffset: 0
+  easeJumpType: 0
+  easeFallType: 0
   r_cara: {fileID: 0}
   r_gorro: {fileID: 0}
   r_gafas: {fileID: 0}
@@ -1843,6 +1939,7 @@ MonoBehaviour:
   debugInfo: 1
   id: -1
   _light: {fileID: 0}
+  audioController: {fileID: 0}
 --- !u!114 &114684576924267412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1882,8 +1979,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 133a2b2677e15fd49b241ee10b2e8e11, type: 3}
   - {fileID: 21300000, guid: 6b82cb525b359044e83de5e39e39d9fa, type: 3}
   rayas:
-  - {fileID: 21300000, guid: 47b08647fa8b81a49afb3357d3128704, type: 3}
-  - {fileID: 21300000, guid: 75b53bd7f16335643966e1be1788f349, type: 3}
+  - {fileID: 21300000, guid: f9cd46fe96da80245a881f2c59f99840, type: 3}
+  - {fileID: 21300000, guid: f9cd46fe96da80245a881f2c59f99840, type: 3}
   - {fileID: 21300000, guid: 90d8c6a0129a7cd4e9c7d03711a71aad, type: 3}
   - {fileID: 21300000, guid: 6e5fd3b5e8f85bc4a88c036797ac6deb, type: 3}
   - {fileID: 21300000, guid: 308655bac0939f244a2f0d44cdd88dcc, type: 3}
@@ -1922,11 +2019,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6876a73270c62da4fb9997bf0c5a49fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveOffset: 2
   startPos: {x: 0, y: 0}
-  clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  timeUp: 0
+  timeDown: 0
+  maxOffset: 0
+  minOffset: 0
+  easeJumpType: 0
+  easeFallType: 0
   r_cara: {fileID: 0}
   r_gorro: {fileID: 0}
   r_gafas: {fileID: 0}
@@ -1936,6 +2037,7 @@ MonoBehaviour:
   debugInfo: 1
   id: -1
   _light: {fileID: 0}
+  audioController: {fileID: 0}
 --- !u!212 &212020645239481274
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -2247,7 +2349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 32
-  m_Sprite: {fileID: 21300000, guid: 75b53bd7f16335643966e1be1788f349, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9cd46fe96da80245a881f2c59f99840, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2317,7 +2419,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 32
-  m_Sprite: {fileID: 21300000, guid: 47b08647fa8b81a49afb3357d3128704, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9cd46fe96da80245a881f2c59f99840, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

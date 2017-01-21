@@ -66,3 +66,6 @@ TagManager:
   - name: Fila1
     uniqueID: 1935297125
     locked: 0
+  - name: crossHair
+    uniqueID: 1740455555
+    locked: 0
