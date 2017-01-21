@@ -18,9 +18,16 @@ public class PlayerController : Controller {
 
     public Light _light;
 
+    public AudioController audioController;
+
     public void SetKeyCode(KeyCode _keyCode)
     {
         keyCode = _keyCode;
+    }
+
+    public void Awake()
+    {
+        audioController = FindObjectOfType<AudioController>();
     }
 
 	// Update is called once per frame
@@ -46,6 +53,7 @@ public class PlayerController : Controller {
             return;
         }
 
+        audioController.PlayJump();
         debugPos = transform.position;
         debugSweepLinePos = URSSManager.sweepLine.transform.position;
         debugSweepLinePos.y = debugPos.y;

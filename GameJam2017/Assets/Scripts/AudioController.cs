@@ -6,6 +6,7 @@ public class AudioController : MonoBehaviour {
 
     public AudioSource Stadium_Ambience;
     public AudioSource Shot;
+    public AudioSource Jump;
 
     // Use this for initialization
     void Start () {
@@ -20,5 +21,10 @@ public class AudioController : MonoBehaviour {
     public void PlayShot()
     {
         Shot.Play();
+    }
+
+    public void PlayJump()
+    {
+        Jump.Play();
     }
 }
