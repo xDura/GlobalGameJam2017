@@ -19,6 +19,7 @@ public class PlayerController : Controller {
     public Light _light;
 
     public AudioController audioController;
+    public GameObject bloodPivot;
 
     public void SetKeyCode(KeyCode _keyCode)
     {
