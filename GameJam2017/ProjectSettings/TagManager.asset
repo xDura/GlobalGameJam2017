@@ -17,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - BackGround
   - 
   - 
   - 
@@ -42,9 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 3380255047
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Sort
     uniqueID: 823732377
+    locked: 0
+  - name: SweepLine
+    uniqueID: 810886591
     locked: 0
