@@ -42,9 +42,5 @@ public class SweepLine : MonoBehaviour {
             Debug.Log("NPCController");
             controller.Wave();
         }
-        //else if(controller is PlayerController)
-        //{
-
-        //}
     }
 }

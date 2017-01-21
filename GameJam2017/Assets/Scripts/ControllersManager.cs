@@ -17,7 +17,8 @@ public class ControllersManager : MonoBehaviour {
 
         for(int i = 0; i < controllers.Length; i++)
         {
-            GetKeyForPlayer(i);
+            if (GetKeyForPlayer(i))
+                controllers[i].Wave();
         }
 	}
 
@@ -33,13 +34,14 @@ public class ControllersManager : MonoBehaviour {
             case 1:
                 return Input.GetKeyDown("Space");
             case 2:
-                return Input.GetKeyDown("Space");
+                return Input.GetKeyDown(KeyCode.KeypadEnter);
             case 3:
-                return Input.GetKeyDown("Space");
+                return Input.GetKeyDown(KeyCode.Q);
             case 4:
-                return Input.GetKeyDown("Space");
+                return Input.GetKeyDown(KeyCode.P);
         }
 
+        Debug.LogError("Esto no tiene que pasar");
         return Input.GetKeyDown("Space");
     }
 }
