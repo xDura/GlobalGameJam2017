@@ -73,7 +73,6 @@ public class URSSManager : MonoBehaviour {
         if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
             RandomizeNPCs();
 
-        for(int i = )
         
     }
 
