@@ -136,7 +136,6 @@ public class URSSManager : MonoBehaviour {
     {
         if (GetAlivePlayers() <= 1)
         {
-            ChangeState(STATE.END_GAME);
             StartCoroutine(GameFinished());
         }
         else
@@ -357,6 +356,8 @@ public class URSSManager : MonoBehaviour {
 
         Fader.FadeIn();
 
+        Debug.Break();
+
         yield return new WaitForSeconds(4);
 
         if (!p1) lastScreenSetup.Kill(0);
@@ -370,6 +371,8 @@ public class URSSManager : MonoBehaviour {
         Fader.FadeOut();
 
         yield return new WaitForSeconds(3);
+
+        Start();
 
     }
 
