@@ -13,4 +13,10 @@ public class NPCController : Controller {
 	void Update () {
 		
 	}
+
+    public void SetSprites(Sprite gorro, Sprite cara, Sprite gafas, Sprite camiseta, Sprite raya)
+    {
+
+    }
+
 }

@@ -13,7 +13,8 @@ public class URSSManager : MonoBehaviour {
     public List<Sprite> camisetas;
     public List<Sprite> rayas;
 
-    public List<NPCController> NPCConrtollers;
+    public GameObject npcPrefab;
+    public List<NPCController> NPCControllers;
     public List<PlayerController> PlayerControllers;
 
 
@@ -62,6 +63,19 @@ public class URSSManager : MonoBehaviour {
         }
     }
 
+    public void Reset()
+    {
+        for (int i = 0; i < seats.Length; i++)
+        {
+            Seat currentSeat = seats[i];
+            if (currentSeat != null && currentSeat.takenBy != null)
+                DestroyImmediate(currentSeat.gameObject);
+        }
+
+        NPCControllers.Clear();
+        PlayerControllers.Clear();
+    }
+
     public void RandomizeNPCs()
     {
         int camisetaId = Random.Range(0, camisetas.Count);
@@ -73,7 +87,18 @@ public class URSSManager : MonoBehaviour {
         if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
             RandomizeNPCs();
 
-        
+        for (int seatId = 0; seatId < seats.Length; seatId++)
+        {
+            Seat currentSeat = seats[seatId];
+            if (currentSeat.takenBy != null)
+                continue;
+
+            GameObject npcObject = Instantiate(npcPrefab, currentSeat.transform);
+            npcObject.name = "NPC_" + NPCControllers.Count;
+            NPCController npcController = npcObject.GetComponent<NPCController>();
+            npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
+            NPCControllers.Add(npcController);
+        }
     }
 
     public bool CheckIdsConsistency(int camiseta, int gorro, int cara, int gafa, int raya)
