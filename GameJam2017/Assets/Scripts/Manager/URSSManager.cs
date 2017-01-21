@@ -83,6 +83,9 @@ public class URSSManager : MonoBehaviour {
                 for (int i = 0; i < controllers.Count; i++)
                     controllers[i].UpdateManually();
                 break;
+            case STATE.END_GAME:
+                UpdateEndState();
+                break;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -284,6 +287,18 @@ public class URSSManager : MonoBehaviour {
         return alivePlayers;
     }
 
+    void UpdateEndState()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            lastScreenSetup.RestartGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            lastScreenSetup.Quit();
+        }
+    }
+
     IEnumerator WaveFinished()
     {
         if (controllers == null || controllers.Count == 0) yield break;
@@ -341,6 +356,8 @@ public class URSSManager : MonoBehaviour {
     {
         Init();
 
+        ChangeState(STATE.END_GAME);
+
         bool p1, p2, p3, p4;
         p1 = playersCross[0].activeInHierarchy;
         p2 = playersCross[1].activeInHierarchy;
@@ -362,15 +379,6 @@ public class URSSManager : MonoBehaviour {
         if (!p2) lastScreenSetup.Kill(1);
         if (!p3) lastScreenSetup.Kill(2);
         if (!p4) lastScreenSetup.Kill(3);
-
-        while (!Input.GetKeyDown(KeyCode.R))
-            yield return null;
-
-        Fader.FadeOut();
-
-        yield return new WaitForSeconds(3);
-
-        Start();
 
     }
 

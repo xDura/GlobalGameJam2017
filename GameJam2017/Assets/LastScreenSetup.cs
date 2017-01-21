@@ -9,9 +9,11 @@ public class LastScreenSetup : MonoBehaviour {
     public List<GameObject> gameObjectsToActivate;
     public List<GameObject> playersCross;
     public List<Light> lights;
+    public bool reseted = false;
 
     public void Restore()
     {
+        reseted = false;
         for (int i = 0; i < playersCross.Count; i++)
             playersCross[i].SetActive(false);
         for (int i = 0; i < gameObjectsToActivate.Count; i++)
@@ -60,6 +62,19 @@ public class LastScreenSetup : MonoBehaviour {
 
     public void RestartGame()
     {
+        if(!reseted)
+            urssManager.Start();
+        reseted = true;
+    }
+
+    public IEnumerator RestartGameCoroutien()
+    {
+        yield return new WaitForSeconds(1f);
+
+        Fader.FadeOut();
+
+        yield return new WaitForSeconds(2f);
+
         urssManager.Start();
     }
 
