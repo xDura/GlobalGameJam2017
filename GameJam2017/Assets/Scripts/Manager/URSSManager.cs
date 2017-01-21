@@ -20,7 +20,7 @@ public class URSSManager : MonoBehaviour {
     public List<PlayerController> controllers;
 
     public Seat[] seats;
-    public List<Seat> playerSeats;
+    public static List<Seat> playerSeats;
 
     public List<Sprite> gorros;
     public List<Sprite> caras;
