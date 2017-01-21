@@ -57,7 +57,5 @@ public class Controller : MonoBehaviour {
         r_gafas.sortingLayerName = layer;
         r_camiseta.sortingLayerName = layer;
         r_raya.sortingLayerName = layer;
-
-        Debug.LogError(r_cara.sortingLayerName);
     }
 }
