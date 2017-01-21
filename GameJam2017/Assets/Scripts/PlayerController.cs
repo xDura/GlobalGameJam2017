@@ -7,8 +7,11 @@ public class PlayerController : Controller {
     bool hasActed = false;
     float distanceScore = 100.0f;
     public bool debugInfo = false;
-		
-	}
+
+
+    Vector2 debugPos;
+    Vector2 debugSweepLinePos;
+    KeyCode keyCode = KeyCode.Space;
 
     public void SetKeyCode(KeyCode _keyCode)
     {
