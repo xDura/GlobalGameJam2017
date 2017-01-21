@@ -330,16 +330,17 @@ public class URSSManager : MonoBehaviour {
         crossHair.SetActive(true);
         for (int i = 0; i < controllers.Count; i++)
         {
-            Vector2 position = controllers[Random.Range(0, controllers.Count)].transform.position;
+            Vector2 position = controllers[i].transform.position;
             crossHair.transform.DOMove(position, 2f);
             yield return new WaitForSeconds(2);
         }
 
-
-        playersCross[worstPlayer].SetActive(true);
         Vector2 _position = controllers[worstPlayer].transform.position;
         crossHair.transform.DOMove(_position, 2f);
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(3);
+
+        playersCross[worstPlayer].SetActive(true);
         audioController.PlayShot();
 
         yield return new WaitForSeconds(2);
