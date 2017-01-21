@@ -185,11 +185,11 @@ public class URSSManager : MonoBehaviour {
         {
             int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
             currentWave = Mathf.Clamp(currentWave, 0, 4);
-            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*camisetas.Count*/);
-            int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*gorros.Count*/);
-            int caraId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*caras.Count*/);
-            int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*gafas.Count*/);
-            int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, 4/*rayas.Count*/);
+            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, camisetas.Count);
+            int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, gorros.Count);
+            int caraId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, caras.Count);
+            int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, gafas.Count);
+            int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 1), 0, rayas.Count);
 
             if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
             {
