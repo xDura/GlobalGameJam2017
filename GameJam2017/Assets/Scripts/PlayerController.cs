@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : Controller {
 
@@ -15,7 +16,7 @@ public class PlayerController : Controller {
     Vector2 debugSweepLinePos;
     KeyCode keyCode = KeyCode.Space;
 
-    Light light;
+    public Light light;
 
     public void SetKeyCode(KeyCode _keyCode)
     {
@@ -54,6 +55,12 @@ public class PlayerController : Controller {
 
     public void OpenLight()
     {
+        light.DOIntensity(1.0f, 1f);
+    }
+
+    public void CloseLight()
+    {
+        light.DOIntensity(0.0f, 1f);
     }
 
 }

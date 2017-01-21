@@ -44,6 +44,8 @@ public class URSSManager : MonoBehaviour {
 
     public AudioController audioController;
 
+    public Light mainLight;
+
     public void Awake()
     {
         if (gorros == null)
@@ -298,6 +300,7 @@ public class URSSManager : MonoBehaviour {
         while (currentWaitTime <= shotWaitTime)
         {
             currentWaitTime += Time.deltaTime;
+            mainLight.intensity -= Time.deltaTime;
             yield return null;
         }
 
