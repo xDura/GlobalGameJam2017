@@ -112,6 +112,30 @@ public class URSSManager : MonoBehaviour {
         urssState = newState;
     }
 
+    public void EndWave()
+    {
+        if (controllers == null || controllers.Count == 0) return;
+
+        int worstPlayer = 0;
+        float worstDistance = controllers[worstPlayer].distanceScore;
+
+        for (int i = 0; i < controllers.Count; i++)
+        {
+            PlayerController currentPlayer = controllers[i];
+            if (playersCross[currentPlayer.id].activeInHierarchy)
+                continue;
+            if (worstDistance <= currentPlayer.distanceScore)
+            {
+                worstPlayer = currentPlayer.id;
+                worstDistance = currentPlayer.distanceScore;
+            }
+        }
+
+        playersCross[worstPlayer].SetActive(true);
+
+        ChangeState(URSSManager.STATE.WAVE_FINISHED);
+    }
+
     public void UpdateStateCounter()
     {
         currentWaitTime += Time.deltaTime;
@@ -121,7 +145,7 @@ public class URSSManager : MonoBehaviour {
 
     public void StartWave()
     {
-        sweepLine.StartWave(0.08f * (waveNum + 1));
+        sweepLine.StartWave(0.08f);
         ChangeState(STATE.IN_WAVE);
     }
 
@@ -187,14 +211,14 @@ public class URSSManager : MonoBehaviour {
             Seat currentSeat = playerSeats[seat];
 
             GameObject playerGO = Instantiate(playersPrefabs[playerId], currentSeat.transform);
-            playerGO.name = "Player_" + seat.ToString();
+            playerGO.name = "Player_Id:" + playerId + "_Seat:" + seat.ToString();
             playerGO.transform.parent = playersTransform;
             playerGO.transform.position = currentSeat.transform.position;
 
             PlayerController currentPlayerController = playerGO.GetComponent<PlayerController>();
             currentSeat.takenBy = currentPlayerController;
             controllers.Add(currentPlayerController);
-
+            
             switch (playerId)
             {
                 case 0:
@@ -208,6 +232,7 @@ public class URSSManager : MonoBehaviour {
             }
 
             currentPlayerController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
+            currentPlayerController.id = playerId;
         }
     }
 

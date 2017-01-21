@@ -15,7 +15,7 @@ public class EndWale : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (urssManager == null) return;
-        urssManager.ChangeState(URSSManager.STATE.WAVE_FINISHED);
+        urssManager.EndWave();
     }
 
 }

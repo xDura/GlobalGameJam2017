@@ -9,6 +9,7 @@ public class PlayerController : Controller {
     bool failed = false;
     public bool debugInfo = false;
 
+    public int id = -1;
 
     Vector2 debugPos;
     Vector2 debugSweepLinePos;
