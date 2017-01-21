@@ -21,6 +21,8 @@ public class PlayerController : Controller {
     public AudioController audioController;
     public GameObject bloodPivot;
 
+    public GameObject currentBlood;
+
     public void SetKeyCode(KeyCode _keyCode)
     {
         keyCode = _keyCode;
@@ -41,6 +43,15 @@ public class PlayerController : Controller {
         if (Input.GetKeyDown(keyCode))
             Wave();
 	}
+
+    public void BleedOut(GameObject bloodPrefab)
+    {
+        currentBlood = GameObject.Instantiate(bloodPrefab, bloodPivot.transform.position, Quaternion.identity);
+        if (Random.Range(0, 1) == 1)
+            currentBlood.GetComponent<Animator>().SetTrigger("blood2");
+        else
+            currentBlood.GetComponent<Animator>().SetTrigger("blood");
+    }
 
     public override void Wave()
     {

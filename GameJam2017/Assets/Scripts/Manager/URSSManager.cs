@@ -350,12 +350,7 @@ public class URSSManager : MonoBehaviour {
         yield return new WaitForSeconds(3);
 
         Vector3 mainPosition = crossHair.transform.position;
-        currentBlood = GameObject.Instantiate(bloodPrefab, mainPosition, Quaternion.identity);
-
-        if(Random.Range(0, 1) == 1)
-            currentBlood.GetComponent<Animator>().SetTrigger("blood2");
-        else
-            currentBlood.GetComponent<Animator>().SetTrigger("blood");
+        controllers[worstPlayerInt].BleedOut(bloodPrefab);
 
         Color mainColor = backGround.color;
 
@@ -370,6 +365,7 @@ public class URSSManager : MonoBehaviour {
 
         yield return new WaitForSeconds(2f);
 
+        controllers[worstPlayerInt].currentBlood = null;
         Fader.FadeOut();
 
         yield return new WaitForSeconds(endWaveWaitTime);
