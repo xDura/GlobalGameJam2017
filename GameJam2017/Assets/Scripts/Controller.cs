@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Controller : MonoBehaviour {
 
-    public float waveOffset;
     public Vector2 startPos;
     private Vector2 maxPos;
-    public float clanckValue = 0.05f;
-
     public bool wentUp = false;
     public bool hasWaved = false;
+
+    [Header("WaveParams")]
+    float waveOffset;
+    public float timeUp;
+    public float timeDown;
+    public float maxOffset;
+    public float minOffset;
+    public Ease easeJumpType;
+    public Ease easeFallType;
+    
 
     //assets
     [Header("Assets")]
@@ -23,7 +31,13 @@ public class Controller : MonoBehaviour {
     public virtual void Wave()
     {
         hasWaved = true;
-        StartCoroutine(WaveCoroutine());
+
+        startPos = transform.position;
+        maxPos = transform.position;
+        waveOffset = Random.Range(maxOffset, minOffset);
+        maxPos.y += waveOffset;
+
+        gameObject.transform.DOMove(new Vector3(maxPos.x, maxPos.y, 0), timeUp).SetEase(easeJumpType).OnComplete(GoDown);
     }
 
     public virtual bool HasWaved()
@@ -31,31 +45,9 @@ public class Controller : MonoBehaviour {
         return hasWaved;
     }
 
-    public IEnumerator WaveCoroutine()
+    public void GoDown()
     {
-        startPos = transform.position;
-        maxPos = transform.position;
-        maxPos.y += waveOffset;
-
-        while (!wentUp)
-        {
-            
-            transform.position = Vector2.Lerp(transform.position, maxPos, 0.1f);
-            if(Vector2.Distance(transform.position, startPos) >= waveOffset - clanckValue)
-                wentUp = true;
-
-            yield return null;
-        }
-
-        while (Vector2.Distance(transform.position, startPos) >= 0.01f)
-        {
-            transform.position = Vector2.Lerp(transform.position, startPos, clanckValue);
-            yield return null;
-        }
-
-        transform.position = startPos;
-
-        yield break;
+        gameObject.transform.DOMove(new Vector3(startPos.x, startPos.y, 0), timeDown).SetEase(easeFallType);
     }
 
     public void SetLayer(string layer)
@@ -65,5 +57,7 @@ public class Controller : MonoBehaviour {
         r_gafas.sortingLayerName = layer;
         r_camiseta.sortingLayerName = layer;
         r_raya.sortingLayerName = layer;
+
+        Debug.LogError(r_cara.sortingLayerName);
     }
 }
