@@ -49,7 +49,7 @@ public class PlayerController : Controller {
         debugSweepLinePos = URSSManager.sweepLine.transform.position;
         debugSweepLinePos.y = debugPos.y;
         distanceScore = Mathf.Abs(URSSManager.sweepLine.transform.position.x - transform.position.x);
-        Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
+        //Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 
     public void OpenLight()
