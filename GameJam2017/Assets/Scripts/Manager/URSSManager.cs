@@ -21,6 +21,8 @@ public class URSSManager : MonoBehaviour {
 
     public int waveNum = 0;
 
+    public SweepLine sweepLine;
+
     public void Awake()
     {
         if (gorros == null)
@@ -39,8 +41,10 @@ public class URSSManager : MonoBehaviour {
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.R))
             nextWave();
+        if (Input.GetKeyDown(KeyCode.Space))
+            sweepLine.StartGame(0.08f * (waveNum+1) );
     }
 
     public void Start()
@@ -53,11 +57,12 @@ public class URSSManager : MonoBehaviour {
         Init();
         SitPlayers();
         SitNPCs();
+        sweepLine.Init();
     }
 
     public void nextWave()
     {
-        //waveNum = waveNum + 1;
+        waveNum = waveNum + 1;
         InitWave();
     }
 
