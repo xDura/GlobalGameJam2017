@@ -6,20 +6,24 @@ public class PlayerController : Controller {
 
     bool hasActed = false;
     float distanceScore = 100.0f;
-    bool failed = false;
     public bool debugInfo = false;
-
-    Vector2 debugPos;
-    Vector2 debugSweepLinePos;
-	// Use this for initialization
-	void Start () {
 		
 	}
-	
+
+    public void SetKeyCode(KeyCode _keyCode)
+    {
+        keyCode = _keyCode;
+    }
+
 	// Update is called once per frame
 	void Update () {
         if (debugInfo)
             Debug.DrawLine(debugPos, debugSweepLinePos, Color.red);
+    }
+    
+	public void UpdateManually () {
+        if (Input.GetKeyDown(keyCode))
+            Wave();
 	}
 
     public override void Wave()
@@ -41,9 +45,5 @@ public class PlayerController : Controller {
         Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 
-    public void KillPlayer()
-    {
-        failed = true;
-    }
 
 }

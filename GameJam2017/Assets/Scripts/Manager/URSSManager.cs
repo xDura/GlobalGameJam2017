@@ -54,42 +54,34 @@ public class URSSManager : MonoBehaviour {
         if (controllers == null) return;
 
         for (int i = 0; i < controllers.Count; i++)
-        {
-            if (GetKeyForPlayer(i))
-                controllers[i].Wave();
-        }
+            controllers[i].UpdateManually();
 
         if (Input.GetKeyDown(KeyCode.R))
             nextWave();
         if (Input.GetKeyDown(KeyCode.Space))
-            sweepLine.StartGame(0.08f * (waveNum+1) );
-        if (Input.GetKey(KeyCode.K))
+            sweepLine.StartGame(0.08f * (waveNum + 1));
+
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-
+            playersCross[0].SetActive(true);
         }
-    }
-
-    public bool GetKeyForPlayer(int num)
-    {
-        switch (num)
+        if (Input.GetKey(KeyCode.Alpha2))
         {
-            case 0:
-                return Input.GetKeyDown(KeyCode.Space);
-            case 1:
-                return Input.GetKeyDown(KeyCode.Return);
-            case 2:
-                return Input.GetKeyDown(KeyCode.Q);
-            case 3:
-                return Input.GetKeyDown(KeyCode.P);
+            playersCross[1].SetActive(true);
         }
-
-        Debug.LogError("Esto no tiene que pasar");
-        return Input.GetKeyDown("Space");
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            playersCross[2].SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            playersCross[3].SetActive(true);
+        }
     }
 
     public void UpdateKilledPlayers()
     {
-        //for(int i = 0; i < players)
+        //SetFailedPlayers
     }
 
     public void Start()
@@ -99,6 +91,9 @@ public class URSSManager : MonoBehaviour {
 
     private void InitWave()
     {
+        UpdateKilledPlayers();
+
+
         Init();
         SitPlayers();
         SitNPCs();
@@ -135,8 +130,12 @@ public class URSSManager : MonoBehaviour {
 
     public void SitPlayers()
     {
+        controllers.Clear();
         for (int playerId = 0; playerId < playersPrefabs.Count; playerId++)
         {
+            if (playersCross[playerId].activeInHierarchy)
+                continue;
+
             int seat = GetFreePlayerSeat();
             Seat currentSeat = playerSeats[seat];
 
@@ -148,6 +147,20 @@ public class URSSManager : MonoBehaviour {
             PlayerController currentPlayerController = playerGO.GetComponent<PlayerController>();
             currentSeat.takenBy = currentPlayerController;
             controllers.Add(currentPlayerController);
+
+            switch (playerId)
+            {
+                case 0:
+                    currentPlayerController.SetKeyCode(KeyCode.Space); break;
+                case 1:
+                    currentPlayerController.SetKeyCode(KeyCode.KeypadEnter); break;
+                case 2:
+                    currentPlayerController.SetKeyCode(KeyCode.Q); break;
+                case 3:
+                    currentPlayerController.SetKeyCode(KeyCode.P); break;
+            }
+
+
         }
     }
 
