@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : Controller {
 
     bool hasActed = false;
-    float distanceScore = 100.0f;
+    public float distanceScore =float.MaxValue;
+    bool failed = false;
     public bool debugInfo = false;
 
 
@@ -44,7 +45,7 @@ public class PlayerController : Controller {
         debugPos = transform.position;
         debugSweepLinePos = URSSManager.sweepLine.transform.position;
         debugSweepLinePos.y = debugPos.y;
-        float distanceScore = Mathf.Abs(URSSManager.sweepLine.transform.position.y - transform.position.y);
+        distanceScore = Mathf.Abs(URSSManager.sweepLine.transform.position.x - transform.position.x);
         Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 

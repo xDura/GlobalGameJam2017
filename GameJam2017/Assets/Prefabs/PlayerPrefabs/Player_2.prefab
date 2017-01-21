@@ -250,6 +250,7 @@ MonoBehaviour:
   clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  debugInfo: 1
 --- !u!212 &212029095109318442
 SpriteRenderer:
   m_ObjectHideFlags: 1
