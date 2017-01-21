@@ -47,6 +47,9 @@ public class URSSManager : MonoBehaviour {
 
     public Light mainLight;
 
+    public LastScreenSetup lastScreenSetup;
+    public List<GameObject> StadiumObjects;
+
     public void Awake()
     {
         if (gorros == null)
@@ -105,15 +108,18 @@ public class URSSManager : MonoBehaviour {
         ChangeState(STATE.IN_WAVE);
     }
 
-    public void ResetPlayers()
+    public void RestoreScenario()
     {
+        lastScreenSetup.Restore();
+        for (int i = 0; i < StadiumObjects.Count; i++)
+            StadiumObjects[i].SetActive(true);
         for (int i = 0; i < playersCross.Count; i++)
             playersCross[i].SetActive(false);
     }
 
     public void Start()
     {
-        ResetPlayers();
+        RestoreScenario();
         InitWave();
         StartCoroutine(WaitForStartWave());
     }
@@ -334,7 +340,32 @@ public class URSSManager : MonoBehaviour {
     IEnumerator GameFinished()
     {
         Init();
-        while(!Input.GetKeyDown(KeyCode.R))
+
+        bool p1, p2, p3, p4;
+        p1 = playersCross[0].activeInHierarchy;
+        p2 = playersCross[1].activeInHierarchy;
+        p3 = playersCross[2].activeInHierarchy;
+        p4 = playersCross[3].activeInHierarchy;
+
+        for (int i = 0; i < StadiumObjects.Count; i++)
+            StadiumObjects[i].SetActive(false);
+
+        lastScreenSetup.SetUp(p1, p2, p3, p4);
+
+        yield return new WaitForSeconds(2);
+
+        Fader.FadeIn();
+
+        Debug.Break();
+
+        yield return new WaitForSeconds(2);
+
+        if (!p1) lastScreenSetup.Kill(0);
+        if (!p2) lastScreenSetup.Kill(1);
+        if (!p3) lastScreenSetup.Kill(2);
+        if (!p4) lastScreenSetup.Kill(3);
+
+        while (!Input.GetKeyDown(KeyCode.R))
             yield return null;
 
         Start();
