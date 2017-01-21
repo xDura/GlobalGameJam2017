@@ -15,6 +15,8 @@ public class PlayerController : Controller {
     Vector2 debugSweepLinePos;
     KeyCode keyCode = KeyCode.Space;
 
+    Light light;
+
     public void SetKeyCode(KeyCode _keyCode)
     {
         keyCode = _keyCode;
@@ -50,5 +52,8 @@ public class PlayerController : Controller {
         Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 
+    public void OpenLight()
+    {
+    }
 
 }

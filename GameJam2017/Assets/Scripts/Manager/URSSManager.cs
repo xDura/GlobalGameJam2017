@@ -102,8 +102,15 @@ public class URSSManager : MonoBehaviour {
         ChangeState(STATE.IN_WAVE);
     }
 
+    public void ResetPlayers()
+    {
+        for (int i = 0; i < playersCross.Count; i++)
+            playersCross[i].SetActive(false);
+    }
+
     public void Start()
     {
+        ResetPlayers();
         InitWave();
         StartCoroutine(WaitForStartWave());
     }
@@ -329,7 +336,11 @@ public class URSSManager : MonoBehaviour {
     IEnumerator GameFinished()
     {
         Init();
-        yield return null;
+        while(!Input.GetKeyDown(KeyCode.R))
+            yield return null;
+
+        Start();
+
     }
 
 }
