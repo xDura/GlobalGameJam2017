@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4057165515903492}
   - component: {fileID: 114493992999293964}
-  - component: {fileID: 65315793324085168}
+  - component: {fileID: 61330567611525062}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -220,18 +220,20 @@ Transform:
   m_Father: {fileID: 4457921017381770}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65315793324085168
-BoxCollider:
+--- !u!61 &61330567611525062
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259681173805832}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.57, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.85, y: 1}
 --- !u!114 &114493992999293964
 MonoBehaviour:
   m_ObjectHideFlags: 1
