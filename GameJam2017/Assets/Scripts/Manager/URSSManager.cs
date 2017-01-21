@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class URSSManager : MonoBehaviour {
     public static SweepLine sweepLine;
+    public static List<Seat> playerSeats;
 
     public enum STATE
     {
@@ -15,12 +16,17 @@ public class URSSManager : MonoBehaviour {
         END_GAME = 4
     }
 
+    private void OnDestroy()
+    {
+        if(playerSeats == null)
+            playerSeats.Clear();
+    }
+
     STATE urssState = STATE.COUNTER;
 
     public List<PlayerController> controllers;
 
     public Seat[] seats;
-    public static List<Seat> playerSeats;
 
     public List<Sprite> gorros;
     public List<Sprite> caras;
@@ -308,7 +314,7 @@ public class URSSManager : MonoBehaviour {
         }
     }
 
-    IEnumerator WaveFinished()
+    IEnumerator WaveFinished() //OMG THE WORST FUNCTION EVAH =D SOME DAY WE WILL WE EXECUTED =)
     {
         if (controllers == null || controllers.Count == 0) yield break;
 
