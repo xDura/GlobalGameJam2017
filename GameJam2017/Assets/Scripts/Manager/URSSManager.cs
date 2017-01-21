@@ -5,6 +5,8 @@ using UnityEngine;
 public class URSSManager : MonoBehaviour {
     static SweepLine sweepLine;
 
+    public List<PlayerController> controllers;
+
     public Seat[] seats;
     public List<Seat> playerSeats;
 
@@ -36,6 +38,9 @@ public class URSSManager : MonoBehaviour {
             camisetas = new List<Sprite>();
         if (rayas == null)
             rayas = new List<Sprite>();
+        if (controllers == null)
+            controllers = new List<PlayerController>();
+
 
         if (sweepLine == null)
             sweepLine = FindObjectOfType<SweepLine>();
@@ -46,6 +51,14 @@ public class URSSManager : MonoBehaviour {
 
     public void Update()
     {
+        if (controllers == null) return;
+
+        for (int i = 0; i < controllers.Count; i++)
+        {
+            if (GetKeyForPlayer(i))
+                controllers[i].Wave();
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
             nextWave();
         if (Input.GetKeyDown(KeyCode.Space))
@@ -54,6 +67,24 @@ public class URSSManager : MonoBehaviour {
         {
 
         }
+    }
+
+    public bool GetKeyForPlayer(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                return Input.GetKeyDown("Space");
+            case 2:
+                return Input.GetKeyDown(KeyCode.KeypadEnter);
+            case 3:
+                return Input.GetKeyDown(KeyCode.Q);
+            case 4:
+                return Input.GetKeyDown(KeyCode.P);
+        }
+
+        Debug.LogError("Esto no tiene que pasar");
+        return Input.GetKeyDown("Space");
     }
 
     public void UpdateKilledPlayers()
@@ -113,7 +144,10 @@ public class URSSManager : MonoBehaviour {
             playerGO.name = "Player_" + seat.ToString();
             playerGO.transform.parent = playersTransform;
             playerGO.transform.position = currentSeat.transform.position;
-            currentSeat.takenBy = playerGO.GetComponent<PlayerController>();
+
+            PlayerController currentPlayerController = playerGO.GetComponent<PlayerController>();
+            currentSeat.takenBy = currentPlayerController;
+            controllers.Add(currentPlayerController);
         }
     }
 
