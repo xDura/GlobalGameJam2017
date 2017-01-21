@@ -73,13 +73,13 @@ public class URSSManager : MonoBehaviour {
     {
         switch (num)
         {
+            case 0:
+                return Input.GetKeyDown(KeyCode.Space);
             case 1:
-                return Input.GetKeyDown("Space");
+                return Input.GetKeyDown(KeyCode.Return);
             case 2:
-                return Input.GetKeyDown(KeyCode.KeypadEnter);
-            case 3:
                 return Input.GetKeyDown(KeyCode.Q);
-            case 4:
+            case 3:
                 return Input.GetKeyDown(KeyCode.P);
         }
 

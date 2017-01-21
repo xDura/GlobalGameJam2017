@@ -7,7 +7,10 @@ public class PlayerController : Controller {
     bool hasActed = false;
     float distanceScore = 100.0f;
     bool failed = false;
+    public bool debugInfo = false;
 
+    Vector2 debugPos;
+    Vector2 debugSweepLinePos;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,6 +18,8 @@ public class PlayerController : Controller {
 	
 	// Update is called once per frame
 	void Update () {
+        if (debugInfo)
+            Debug.DrawLine(debugPos, debugSweepLinePos, Color.red);
 	}
 
     public override void Wave()
@@ -29,8 +34,11 @@ public class PlayerController : Controller {
             return;
         }
 
+        debugPos = transform.position;
+        debugSweepLinePos = URSSManager.sweepLine.transform.position;
+        debugSweepLinePos.y = debugPos.y;
         float distanceScore = Mathf.Abs(URSSManager.sweepLine.transform.position.y - transform.position.y);
-        Debug.Log("Player: " + gameObject.name + "Distance: " + distanceScore);
+        Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 
     public void KillPlayer()
