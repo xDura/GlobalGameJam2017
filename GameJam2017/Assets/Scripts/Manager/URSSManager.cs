@@ -12,8 +12,6 @@ public class URSSManager : MonoBehaviour {
         IN_WAVE = 2,
         WAVE_FINISHED = 3,
         END_GAME = 4
-
-
     }
 
     STATE urssState = STATE.COUNTER;
@@ -77,13 +75,6 @@ public class URSSManager : MonoBehaviour {
                 for (int i = 0; i < controllers.Count; i++)
                     controllers[i].UpdateManually();
                 break;
-            case STATE.COUNTER:
-                UpdateStateCounter();
-                break; 
-            case STATE.WAVE_FINISHED:
-                UpdateWaveFinished();
-                break;
-
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -99,35 +90,8 @@ public class URSSManager : MonoBehaviour {
 
     public void EndWave()
     {
-        if (controllers == null || controllers.Count == 0) return;
-
-        int worstPlayer = 0;
-        float worstDistance = controllers[worstPlayer].distanceScore;
-
-        for (int i = 0; i < controllers.Count; i++)
-        {
-            PlayerController currentPlayer = controllers[i];
-            if (playersCross[currentPlayer.id].activeInHierarchy)
-                continue;
-            if (worstDistance <= currentPlayer.distanceScore)
-            {
-                worstPlayer = currentPlayer.id;
-                worstDistance = currentPlayer.distanceScore;
-            }
-        }
-
-        playersCross[worstPlayer].SetActive(true);
-
-        //ToDo: Dura Pot esser aqui
-
-        ChangeState(URSSManager.STATE.WAVE_FINISHED);
-    }
-
-    public void UpdateStateCounter()
-    {
-        currentWaitTime += Time.deltaTime;
-        if (currentWaitTime >= startWaveWaitTime)
-            StartWave();
+        ChangeState(STATE.WAVE_FINISHED);
+        StartCoroutine(WaveFinished());
     }
 
     public void StartWave()
@@ -136,19 +100,10 @@ public class URSSManager : MonoBehaviour {
         ChangeState(STATE.IN_WAVE);
     }
 
-    public void UpdateWaveFinished()
-    {
-        currentWaitTime += Time.deltaTime;
-        if (currentWaitTime >= endWaveWaitTime)
-            NextWave();
-
-        //ToDo: Dura Pot esser aqui també
-
-    }
-
     public void Start()
     {
         InitWave();
+        StartCoroutine(WaitForStartWave());
     }
 
     private void InitWave()
@@ -161,9 +116,16 @@ public class URSSManager : MonoBehaviour {
 
     public void NextWave()
     {
-        waveNum = waveNum + 1;
-        InitWave();
-        ChangeState(STATE.COUNTER);
+        if (GetAlivePlayers() <= 1)
+        {
+            StartCoroutine(GameFinished());
+        }
+        else
+        {
+            waveNum = waveNum + 1;
+            InitWave();
+            StartCoroutine(WaitForStartWave());
+        }
     }
 
     public void FillSeats()
@@ -291,6 +253,69 @@ public class URSSManager : MonoBehaviour {
         if (gafa != raya)
             return true;
         return false;
+    }
+
+    int GetAlivePlayers()
+    {
+        int alivePlayers = 0;
+        for (int i = 0; i < playersCross.Count; i++)
+        {
+            if (playersCross[i].activeInHierarchy == false)
+                alivePlayers++;
+        }
+        return alivePlayers;
+    }
+
+    IEnumerator WaveFinished()
+    {
+        if (controllers == null || controllers.Count == 0) yield break;
+
+        int worstPlayer = 0;
+        float worstDistance = controllers[worstPlayer].distanceScore;
+
+        for (int i = 0; i < controllers.Count; i++)
+        {
+            PlayerController currentPlayer = controllers[i];
+            if (playersCross[currentPlayer.id].activeInHierarchy)
+                continue;
+            if (worstDistance <= currentPlayer.distanceScore)
+            {
+                worstPlayer = currentPlayer.id;
+                worstDistance = currentPlayer.distanceScore;
+            }
+        }
+
+        playersCross[worstPlayer].SetActive(true);
+
+
+        while (currentWaitTime <= endWaveWaitTime)
+        {
+            currentWaitTime += Time.deltaTime;
+            yield return null;
+        }
+
+        NextWave();
+        yield return null;
+    }
+
+    IEnumerator WaitForStartWave()
+    {
+        ChangeState(STATE.COUNTER);
+
+        while (currentWaitTime <= startWaveWaitTime)
+        {
+            currentWaitTime += Time.deltaTime;
+            yield return null;
+        }
+
+        StartWave();
+
+    }
+
+    IEnumerator GameFinished()
+    {
+        Init();
+        yield return null;
     }
 
 }
