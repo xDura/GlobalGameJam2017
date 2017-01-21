@@ -245,11 +245,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ca6ae005d048b4abbf2b2527014c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveOffset: 2
   startPos: {x: 0, y: 0}
-  clanckValue: 0.05
   wentUp: 0
   hasWaved: 0
+  timeUp: 0.7
+  timeDown: 0.7
+  maxOffset: 2.5
+  minOffset: 0.8
+  easeJumpType: 3
+  easeFallType: 2
   r_cara: {fileID: 212746283096701178}
   r_gorro: {fileID: 212592379129707110}
   r_gafas: {fileID: 212000081430478552}
