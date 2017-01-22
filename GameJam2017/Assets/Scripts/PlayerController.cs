@@ -58,18 +58,24 @@ public class PlayerController : Controller {
         if (HasWaved()) return;
 
         base.Wave();
+        audioController.PlayJump();
 
-        if (URSSManager.sweepLine == null)
+        SweepLine sweepLine;
+        if (URSSManager.sweepLine != null)
+            sweepLine = URSSManager.sweepLine;
+
+        else if (Mainmenu.currentSweepLine != null)
+            sweepLine = Mainmenu.currentSweepLine;
+        else
         {
             Debug.LogError("SeepLine es nula LOLOLO");
             return;
         }
 
-        audioController.PlayJump();
         debugPos = transform.position;
-        debugSweepLinePos = URSSManager.sweepLine.transform.position;
+        debugSweepLinePos = sweepLine.transform.position;
         debugSweepLinePos.y = debugPos.y;
-        distanceScore = Mathf.Abs(URSSManager.sweepLine.transform.position.x - transform.position.x);
+        distanceScore = Mathf.Abs(sweepLine.transform.position.x - transform.position.x);
         //Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 

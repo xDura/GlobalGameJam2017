@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioController : MonoBehaviour {
 
@@ -14,7 +15,8 @@ public class AudioController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Stadium_Ambience.Play();
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+            Stadium_Ambience.Play();
 	}
 	
 	// Update is called once per frame

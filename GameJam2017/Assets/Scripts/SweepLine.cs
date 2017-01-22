@@ -21,7 +21,7 @@ public class SweepLine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if(ready)
-            transform.Translate(dir);
+            transform.Translate(dir*Time.deltaTime);
 	}
 
     public void Init()
