@@ -118,7 +118,7 @@ public class URSSManager : MonoBehaviour {
 
     public void StartWave()
     {
-        sweepLine.StartWave(0.08f);
+        sweepLine.StartWave();
         ball.enabled = true;
         ChangeState(STATE.IN_WAVE);
     }

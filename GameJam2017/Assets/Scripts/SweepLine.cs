@@ -30,10 +30,9 @@ public class SweepLine : MonoBehaviour {
         ready = false;
     }
 
-    public void StartWave(float _velocity)
+    public void StartWave()
     {
         ready = true;
-        dir = new Vector2(_velocity, dir.y);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
