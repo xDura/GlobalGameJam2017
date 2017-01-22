@@ -28,13 +28,11 @@ public class NPCController : Controller {
         yield break;
     }
 
-    public void SetSprites(Sprite gorro, Sprite cara, Sprite gafas, Sprite camiseta, Sprite raya)
+    public void SetSprites(Sprite cara, Sprite camiseta, Sprite pantalon)
     {
         r_cara.sprite = cara;
-        r_gorro.sprite = gorro;
-        r_gafas.sprite = gafas;
         r_camiseta.sprite = camiseta;
-        r_raya. sprite = raya;
+        r_camiseta.sprite = pantalon;
     }
 
 }

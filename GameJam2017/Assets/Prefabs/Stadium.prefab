@@ -2499,10 +2499,8 @@ MonoBehaviour:
   easeJumpType: 0
   easeFallType: 0
   r_cara: {fileID: 0}
-  r_gorro: {fileID: 0}
-  r_gafas: {fileID: 0}
   r_camiseta: {fileID: 0}
-  r_raya: {fileID: 0}
+  r_pantalon: {fileID: 0}
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
@@ -2547,10 +2545,8 @@ MonoBehaviour:
   easeJumpType: 0
   easeFallType: 0
   r_cara: {fileID: 0}
-  r_gorro: {fileID: 0}
-  r_gafas: {fileID: 0}
   r_camiseta: {fileID: 0}
-  r_raya: {fileID: 0}
+  r_pantalon: {fileID: 0}
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
@@ -2730,10 +2726,8 @@ MonoBehaviour:
   easeJumpType: 0
   easeFallType: 0
   r_cara: {fileID: 0}
-  r_gorro: {fileID: 0}
-  r_gafas: {fileID: 0}
   r_camiseta: {fileID: 0}
-  r_raya: {fileID: 0}
+  r_pantalon: {fileID: 0}
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1
@@ -2781,36 +2775,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllers: []
   seats: []
-  gorros:
-  - {fileID: 21300000, guid: aaa40e6cd9ef02a4c87062da81d2348c, type: 3}
-  - {fileID: 21300000, guid: 31c3ab14504f7494fa30d7dfeb03d1f3, type: 3}
-  - {fileID: 21300000, guid: 1e10bc04518ade94d98174a366c0632d, type: 3}
-  - {fileID: 21300000, guid: 9b3db9d91498faa4981e6582fd091596, type: 3}
-  - {fileID: 21300000, guid: 3880fe74f61fca941bffd2b9386cc833, type: 3}
   caras:
-  - {fileID: 21300000, guid: d01f367492da5094e82a45a51344330e, type: 3}
-  - {fileID: 21300000, guid: 69e37304eaafbe847aa0aae23d07829f, type: 3}
-  - {fileID: 21300000, guid: efe51389e23bfd5459ab6ab97b1942ac, type: 3}
-  - {fileID: 21300000, guid: 422e6e2bd03f29d4baf32ff7c3092b23, type: 3}
-  - {fileID: 21300000, guid: c40dc7acc5ab4c5409eec3bc17ac2ff5, type: 3}
-  gafas:
-  - {fileID: 21300000, guid: 4641a6cf483777047979f6cfcb3ec66f, type: 3}
-  - {fileID: 21300000, guid: 6b369333a4342124cb718f13d6da84a6, type: 3}
-  - {fileID: 21300000, guid: 737d3a25041f0c04f812cdcb5a0d7ace, type: 3}
-  - {fileID: 21300000, guid: c99ed1480c5f2fe4f85d90de80a92d20, type: 3}
-  - {fileID: 21300000, guid: f770e631412895d4ba05dc55a8c220a9, type: 3}
+  - {fileID: 21300000, guid: 687283ca3a5dd194bb87d1d187f54959, type: 3}
+  - {fileID: 21300000, guid: 40b7a57449d804a43bcb295df7cc168e, type: 3}
+  - {fileID: 21300000, guid: 21537b0628249cb49acfb119c565f100, type: 3}
+  - {fileID: 21300000, guid: 4bd7e53767d10824cb40fec5a4796cde, type: 3}
+  - {fileID: 21300000, guid: f2907c463d42ae649808e31323da9a67, type: 3}
+  - {fileID: 21300000, guid: bdaefba70e344b04baa5e2ff64ae4934, type: 3}
   camisetas:
-  - {fileID: 21300000, guid: d2d2b1fd68981c548b8ee49203e2830e, type: 3}
-  - {fileID: 21300000, guid: b8718c40f53554b43976a088be7c5dee, type: 3}
-  - {fileID: 21300000, guid: 29e7b09eccef8114f9ae841870789853, type: 3}
-  - {fileID: 21300000, guid: 133a2b2677e15fd49b241ee10b2e8e11, type: 3}
-  - {fileID: 21300000, guid: 6b82cb525b359044e83de5e39e39d9fa, type: 3}
-  rayas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 90d8c6a0129a7cd4e9c7d03711a71aad, type: 3}
-  - {fileID: 21300000, guid: 6e5fd3b5e8f85bc4a88c036797ac6deb, type: 3}
-  - {fileID: 21300000, guid: 308655bac0939f244a2f0d44cdd88dcc, type: 3}
+  - {fileID: 21300000, guid: 74b22f7f7662ef448b2e9b6ac5caccc8, type: 3}
+  - {fileID: 21300000, guid: 0dd9ce916163393408b17859507572ac, type: 3}
+  - {fileID: 21300000, guid: 9f982cdee67848049869fc883d92e925, type: 3}
+  - {fileID: 21300000, guid: 4499b39042b27dc47800431914451a17, type: 3}
+  - {fileID: 21300000, guid: 7d9f85b48cf002f438687b68dd5a50b6, type: 3}
+  - {fileID: 21300000, guid: f1af45559e7dbb64fa8f3902e485ab9c, type: 3}
+  pantalones:
+  - {fileID: 21300000, guid: bbde2c749f86d904a94a23819674a156, type: 3}
+  - {fileID: 21300000, guid: a62ecbb65d5dc1d4dae54da0c784a208, type: 3}
+  - {fileID: 21300000, guid: ab9ae1dcbd18d0f44a8469fdf050e3d8, type: 3}
+  - {fileID: 21300000, guid: 2080c54c9b5a9974190e4ea6fe7b852a, type: 3}
+  - {fileID: 21300000, guid: ffa8845717c527548bb5ea7e780ddd6e, type: 3}
+  - {fileID: 21300000, guid: d6e80ed117b349c46bf98b27b53ac73a, type: 3}
   npcPrefab: {fileID: 1265039313919792, guid: 3e84c755f5e6ac341a945947b5b9cd6d, type: 2}
   playersPrefabs:
   - {fileID: 1186815086517142, guid: b4d098f0fa6c2104183f7de870e77fea, type: 2}
@@ -2889,10 +2874,8 @@ MonoBehaviour:
   easeJumpType: 0
   easeFallType: 0
   r_cara: {fileID: 0}
-  r_gorro: {fileID: 0}
-  r_gafas: {fileID: 0}
   r_camiseta: {fileID: 0}
-  r_raya: {fileID: 0}
+  r_pantalon: {fileID: 0}
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1

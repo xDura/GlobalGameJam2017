@@ -24,10 +24,8 @@ public class Controller : MonoBehaviour {
     //assets
     [Header("Assets")]
     public SpriteRenderer r_cara;
-    public SpriteRenderer r_gorro;
-    public SpriteRenderer r_gafas;
     public SpriteRenderer r_camiseta;
-    public SpriteRenderer r_raya;
+    public SpriteRenderer r_pantalon;
 
     public virtual void Wave()
     {
@@ -60,9 +58,7 @@ public class Controller : MonoBehaviour {
     public void SetLayer(string layer)
     {
         r_cara.sortingLayerName = layer;
-        r_gorro.sortingLayerName = layer;
-        r_gafas.sortingLayerName = layer;
         r_camiseta.sortingLayerName = layer;
-        r_raya.sortingLayerName = layer;
+        r_pantalon.sortingLayerName = layer;
     }
 }

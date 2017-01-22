@@ -28,11 +28,9 @@ public class URSSManager : MonoBehaviour {
 
     public Seat[] seats;
 
-    public List<Sprite> gorros;
     public List<Sprite> caras;
-    public List<Sprite> gafas;
     public List<Sprite> camisetas;
-    public List<Sprite> rayas;
+    public List<Sprite> pantalones;
 
     public GameObject npcPrefab;
     public List<GameObject> playersPrefabs;
@@ -66,16 +64,12 @@ public class URSSManager : MonoBehaviour {
 
     public void Awake()
     {
-        if (gorros == null)
-            gorros = new List<Sprite>();
         if (caras == null)
             caras = new List<Sprite>();
-        if (gafas == null)
-            gafas = new List<Sprite>();
         if (camisetas == null)
             camisetas = new List<Sprite>();
-        if (rayas == null)
-            rayas = new List<Sprite>();
+        if (pantalones == null)
+            pantalones = new List<Sprite>();
         if (controllers == null)
             controllers = new List<PlayerController>();
 
@@ -252,18 +246,14 @@ public class URSSManager : MonoBehaviour {
             int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
             currentWave = Mathf.Clamp(currentWave, 0, 4);
             int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, camisetas.Count);
-            int gorroId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, gorros.Count);
             int caraId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, caras.Count);
-            int gafaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, gafas.Count);
-            int rayaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, rayas.Count);
+            int pantalonId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, pantalones.Count);
 
-            if (!CheckIdsConsistency(camisetaId, gorroId, caraId, gafaId, rayaId))
+            if (!CheckIdsConsistency(camisetaId, caraId, pantalonId))
             {
-                camisetaId = 0;
-                gorroId = 1;
-                caraId = 2;
-                gafaId = 3;
-                rayaId = 4;
+                caraId = 0;
+                camisetaId = 1;
+                pantalonId = 2;
             }
 
             //Debug.Log("Ints generated: " + camisetaId + gorroId + caraId + gafaId + rayaId);
@@ -277,20 +267,16 @@ public class URSSManager : MonoBehaviour {
             npcObject.transform.position = currentSeat.transform.position;
             NPCController npcController = npcObject.GetComponent<NPCController>();
             currentSeat.takenBy = npcController;
-            npcController.SetSprites(gorros[gorroId], caras[caraId], gafas[gafaId], camisetas[camisetaId], rayas[rayaId]);
+            npcController.SetSprites(caras[caraId], camisetas[camisetaId], pantalones[pantalonId]);
             npcController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
         }
     }
 
-    public bool CheckIdsConsistency(int camiseta, int gorro, int cara, int gafa, int raya)
+    public bool CheckIdsConsistency(int cara, int camiseta, int pantalon)
     {
-        if (camiseta != gorro)
-            return true;
         if (camiseta != cara)
             return true;
-        if (camiseta != gafa)
-            return true;
-        if (gafa != raya)
+        if (camiseta != pantalon)
             return true;
         return false;
     }
