@@ -5,9 +5,7 @@ using DG.Tweening;
 
 public class PlayerController : Controller {
 
-    bool hasActed = false;
     public float distanceScore =float.MaxValue;
-    bool failed = false;
     public bool debugInfo = false;
 
     public int id = -1;
