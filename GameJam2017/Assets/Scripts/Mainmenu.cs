@@ -13,7 +13,7 @@ public class Mainmenu : MonoBehaviour {
     public GameObject spawnTransform;
     public Vector2 sweepLineDir;
     public PlayerController menuPlayerController;
-    public float minSuccessScore;
+    public float maxSuccessScore;
 
     public bool successDone = false;
 
@@ -52,7 +52,7 @@ public class Mainmenu : MonoBehaviour {
         if (successDone)
             return;
 
-        if (menuPlayerController.distanceScore <= minSuccessScore)
+        if (menuPlayerController.distanceScore <= maxSuccessScore)
         {
             successDone = true;
             StartCoroutine(Success());

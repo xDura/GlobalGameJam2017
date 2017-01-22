@@ -508,7 +508,7 @@ MonoBehaviour:
   spawnTransform: {fileID: 1270119700}
   sweepLineDir: {x: 11.5, y: 0}
   menuPlayerController: {fileID: 1345958773}
-  minSuccessScore: 0.6
+  minSuccessScore: 0.8
   successDone: 0
 --- !u!114 &756266251
 MonoBehaviour:
@@ -526,6 +526,8 @@ MonoBehaviour:
   Jump: {fileID: 756266252}
   tensionSong: {fileID: 0}
   victorySong: {fileID: 0}
+  countDown: {fileID: 0}
+  horn: {fileID: 0}
 --- !u!82 &756266252
 AudioSource:
   m_ObjectHideFlags: 0
