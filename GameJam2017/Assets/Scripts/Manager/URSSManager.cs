@@ -358,6 +358,10 @@ public class URSSManager : MonoBehaviour {
         audioController.PlayShot();
         crossHair.transform.DOMove(mainPosition + (Vector3.up * 0.2f), 0.1f).SetEase(Ease.InOutQuint);
         backGround.DOColor(Color.red, 0.1f);
+
+        controllers[worstPlayerInt].bodyReference.DOLocalRotate(Vector3.forward * 90, 0.3f);
+        controllers[worstPlayerInt].bodyReference.DOLocalMove(Vector3.up * -0.1f , 0.3f);
+
         yield return new WaitForSeconds(0.1f);
 
         crossHair.transform.DOMove(mainPosition, 0.1f);
@@ -380,8 +384,16 @@ public class URSSManager : MonoBehaviour {
         ChangeState(STATE.COUNTER);
         mainLight.DOIntensity(1.0f, 1f);
 
+        yield return new WaitForSeconds(1f);
+
         Fader.FadeIn();
+
+        yield return new WaitForSeconds(1f);
+
+        audioController.PlayCountDown();
         yield return new WaitForSeconds(startWaveWaitTime);
+
+        audioController.PlayHorn();
 
         StartWave();
 

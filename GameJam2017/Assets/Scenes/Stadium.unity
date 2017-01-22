@@ -384,6 +384,42 @@ Prefab:
       propertyPath: StadiumObjects.Array.data[1]
       value: 
       objectReference: {fileID: 596333618}
+    - target: {fileID: 4554073912353096, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283145433257414, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718104492767692, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603373266726328, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554073912353096, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4283145433257414, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718104492767692, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603373266726328, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094980487589654, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb, type: 2}
   m_IsPrefabParent: 0

@@ -281,6 +281,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   wentUp: 0
   hasWaved: 0
+  bodyReference: {fileID: 4138461827740518}
   timeUp: 0.7
   timeDown: 0.7
   maxOffset: 2.5

@@ -11,6 +11,8 @@ public class Controller : MonoBehaviour {
     public bool wentUp = false;
     public bool hasWaved = false;
 
+    public Transform bodyReference;
+
     [Header("WaveParams")]
     float waveOffset;
     public float timeUp;
