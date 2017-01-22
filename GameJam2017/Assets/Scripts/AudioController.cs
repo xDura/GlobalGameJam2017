@@ -8,6 +8,7 @@ public class AudioController : MonoBehaviour {
     public AudioSource Shot;
     public AudioSource Jump;
     public AudioSource tensionSong;
+    public AudioSource victorySong;
 
     // Use this for initialization
     void Start () {
@@ -27,5 +28,10 @@ public class AudioController : MonoBehaviour {
     public void PlayJump()
     {
         Jump.Play();
+    }
+
+    public void VictorySong()
+    {
+        victorySong.Play();
     }
 }

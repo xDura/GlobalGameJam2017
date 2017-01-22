@@ -11,6 +11,8 @@ public class LastScreenSetup : MonoBehaviour {
     public List<Light> lights;
     public bool reseted = false;
 
+    public GameObject petardos;
+
     public void Restore()
     {
         reseted = false;
@@ -53,6 +55,7 @@ public class LastScreenSetup : MonoBehaviour {
     public void Kill(int i)
     {
         playersCross[i].SetActive(true);
+        petardos.SetActive(false);
     }
 
     public void Quit()

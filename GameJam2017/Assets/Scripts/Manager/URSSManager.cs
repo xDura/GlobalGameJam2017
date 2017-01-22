@@ -128,6 +128,8 @@ public class URSSManager : MonoBehaviour {
 
     public void RestoreScenario()
     {
+        backGround.color = Color.white;
+        audioController.victorySong.Stop();
         lastScreenSetup.Restore();
         for (int i = 0; i < StadiumObjects.Count; i++)
             StadiumObjects[i].SetActive(true);
@@ -403,6 +405,8 @@ public class URSSManager : MonoBehaviour {
     {
         Init();
 
+        audioController.VictorySong();
+
         ball.enabled = false;
         ChangeState(STATE.END_GAME);
 
@@ -427,6 +431,9 @@ public class URSSManager : MonoBehaviour {
         if (!p2) lastScreenSetup.Kill(1);
         if (!p3) lastScreenSetup.Kill(2);
         if (!p4) lastScreenSetup.Kill(3);
+        audioController.PlayShot();
+        audioController.victorySong.Stop();
+        backGround.DOColor(Color.red, 0.35f);
 
     }
 
