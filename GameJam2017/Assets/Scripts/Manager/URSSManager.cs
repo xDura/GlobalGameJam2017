@@ -245,9 +245,9 @@ public class URSSManager : MonoBehaviour {
         {
             int currentWave = (waveNum == 0) ? 1 : waveNum; //para que en la primera wave genere randoms entre 0 y 1, si no genera todos a 0 (Player_1!)
             currentWave = Mathf.Clamp(currentWave, 0, 4);
-            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, camisetas.Count);
-            int caraId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, caras.Count);
-            int pantalonId = Mathf.Clamp(Random.Range(0, currentWave + 2), 0, pantalones.Count);
+            int camisetaId = Mathf.Clamp(Random.Range(0, currentWave * 3), 0, camisetas.Count);
+            int caraId = Mathf.Clamp(Random.Range(0, currentWave * 3), 0, caras.Count);
+            int pantalonId = Mathf.Clamp(Random.Range(0, currentWave * 3), 0, pantalones.Count);
 
             if (!CheckIdsConsistency(camisetaId, caraId, pantalonId))
             {
@@ -256,7 +256,7 @@ public class URSSManager : MonoBehaviour {
                 pantalonId = 2;
             }
 
-            //Debug.Log("Ints generated: " + camisetaId + gorroId + caraId + gafaId + rayaId);
+            Debug.Log("Ints generated: " + camisetaId + caraId + pantalonId);
             Seat currentSeat = seats[seatId];
             if (currentSeat.takenBy != null)
                 continue;

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4745464734708606}
   - component: {fileID: 212375389073973150}
   m_Layer: 0
-  m_Name: raya
+  m_Name: pantalon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,10 +288,8 @@ MonoBehaviour:
   easeJumpType: 3
   easeFallType: 2
   r_cara: {fileID: 212545191942111068}
-  r_gorro: {fileID: 0}
-  r_gafas: {fileID: 0}
   r_camiseta: {fileID: 212029095109318442}
-  r_raya: {fileID: 212375389073973150}
+  r_pantalon: {fileID: 212375389073973150}
   distanceScore: 3.4028235e+38
   debugInfo: 1
   id: -1

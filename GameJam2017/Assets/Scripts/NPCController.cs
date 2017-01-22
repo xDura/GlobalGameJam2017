@@ -32,7 +32,7 @@ public class NPCController : Controller {
     {
         r_cara.sprite = cara;
         r_camiseta.sprite = camiseta;
-        r_camiseta.sprite = pantalon;
+        r_pantalon.sprite = pantalon;
     }
 
 }
