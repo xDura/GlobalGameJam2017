@@ -99,9 +99,6 @@ public class URSSManager : MonoBehaviour {
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            StartWave();
-
     }
 
     public void ChangeState(STATE newState)
