@@ -8,6 +8,7 @@ TagManager:
   - Exit
   - Soda
   - Food
+  - sweepLineDestroyer
   layers:
   - Default
   - TransparentFX

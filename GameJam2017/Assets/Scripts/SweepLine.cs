@@ -38,6 +38,9 @@ public class SweepLine : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.tag.Equals("sweepLineDestroyer"))
+            Destroy(this.gameObject);
+
         if (!collider.GetComponent<Controller>()) return;
 
         Controller controller = collider.GetComponent<Controller>();

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
 
@@ -48,6 +49,12 @@ public class Controller : MonoBehaviour {
     public void GoDown()
     {
         gameObject.transform.DOMove(new Vector3(startPos.x, startPos.y, 0), timeDown).SetEase(easeFallType);
+    }
+
+    public void OnWaveCompleted()
+    {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+            hasWaved = false;
     }
 
     public void SetLayer(string layer)
