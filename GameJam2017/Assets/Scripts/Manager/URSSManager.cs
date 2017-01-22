@@ -365,8 +365,10 @@ public class URSSManager : MonoBehaviour {
         crossHair.transform.DOMove(mainPosition + (Vector3.up * 0.2f), 0.1f).SetEase(Ease.InOutQuint);
         backGround.DOColor(Color.red, 0.1f);
 
+        timerText.text = "031 e da HOOD";
+
         controllers[worstPlayerInt].bodyReference.DOLocalRotate(Vector3.forward * 90, 0.3f);
-        controllers[worstPlayerInt].bodyReference.DOLocalMove(Vector3.up * -0.1f , 0.3f);
+        controllers[worstPlayerInt].bodyReference.DOLocalMove(Vector3.up * -0.75f , 0.3f);
 
         yield return new WaitForSeconds(0.1f);
 
