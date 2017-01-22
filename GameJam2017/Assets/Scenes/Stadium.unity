@@ -1272,7 +1272,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -914712249
-  m_SortingOrder: -98
+  m_SortingOrder: -99
   m_TargetDisplay: 0
 --- !u!224 &629844999
 RectTransform:
@@ -2273,7 +2273,6 @@ Prefab:
       propertyPath: urssManager
       value: 
       objectReference: {fileID: 612985591}
-<<<<<<< 40caf15aa792e9ddff86be008c39b2a02879401a
     - target: {fileID: 1823854312258336, guid: d6c64983dd78900499ae3c13f8296533, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -2396,8 +2395,6 @@ Prefab:
       propertyPath: m_FontData.m_MinSize
       value: 1
       objectReference: {fileID: 0}
-=======
->>>>>>> ec91b181748d2d9a57c7d0896ed2f2f21df6d45c
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6c64983dd78900499ae3c13f8296533, type: 2}
   m_IsPrefabParent: 0
