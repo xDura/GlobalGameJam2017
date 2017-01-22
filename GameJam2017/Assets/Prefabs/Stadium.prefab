@@ -2309,6 +2309,7 @@ MonoBehaviour:
   currentBlood: {fileID: 0}
   ball: {fileID: 212760950040479512}
   backGround: {fileID: 212630335482954138}
+  timerText: {fileID: 0}
 --- !u!114 &114772457732519054
 MonoBehaviour:
   m_ObjectHideFlags: 1

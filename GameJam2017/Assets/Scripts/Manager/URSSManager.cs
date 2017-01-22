@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class URSSManager : MonoBehaviour {
     public static SweepLine sweepLine;
@@ -61,6 +62,8 @@ public class URSSManager : MonoBehaviour {
     public SpriteRenderer ball;
 
     public SpriteRenderer backGround;
+
+    public Text timerText;
 
     public void Awake()
     {
@@ -391,7 +394,19 @@ public class URSSManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
 
         audioController.PlayCountDown();
-        yield return new WaitForSeconds(startWaveWaitTime);
+
+        yield return null; //ns saltamos un framesito para que encaje un poco mejor
+
+        timerText.text = "3";
+        yield return new WaitForSeconds(1);
+
+        timerText.text = "2";
+        yield return new WaitForSeconds(1);
+
+        timerText.text = "1";
+        yield return new WaitForSeconds(1);
+
+        timerText.text = "!";
 
         audioController.PlayHorn();
 
