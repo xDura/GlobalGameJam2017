@@ -259,7 +259,7 @@ public class URSSManager : MonoBehaviour {
                 pantalonId = 2;
             }
 
-            Debug.Log("Ints generated: " + camisetaId + caraId + pantalonId);
+            //Debug.Log("Ints generated: " + camisetaId + caraId + pantalonId);
             Seat currentSeat = seats[seatId];
             if (currentSeat.takenBy != null)
                 continue;
