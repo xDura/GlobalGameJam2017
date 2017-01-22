@@ -2245,6 +2245,7 @@ MonoBehaviour:
   - {fileID: 108588990611335668}
   - {fileID: 108400153912025478}
   reseted: 0
+  petardos: {fileID: 1675940527404096}
 --- !u!114 &114402196415905320
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -378,7 +378,7 @@ Prefab:
         type: 2}
       propertyPath: lastScreenSetup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 298029990}
     - target: {fileID: 114684576924267412, guid: d6c1c0eee9c2c6345ba7a6e8c7f9d3eb,
         type: 2}
       propertyPath: StadiumObjects.Array.data[1]
@@ -449,6 +449,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &298029990 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114338936954810156, guid: d6c64983dd78900499ae3c13f8296533,
+    type: 2}
+  m_PrefabInternal: {fileID: 2026268031}
+  m_Script: {fileID: 11500000, guid: e2aadaedae951ce44bf3eb836c61cab3, type: 3}
 --- !u!1001 &338592728
 Prefab:
   m_ObjectHideFlags: 0
@@ -2187,6 +2193,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114338936954810156, guid: d6c64983dd78900499ae3c13f8296533,
+        type: 2}
+      propertyPath: urssManager
+      value: 
+      objectReference: {fileID: 612985591}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6c64983dd78900499ae3c13f8296533, type: 2}
   m_IsPrefabParent: 0
