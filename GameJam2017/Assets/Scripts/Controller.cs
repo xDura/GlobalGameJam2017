@@ -21,7 +21,10 @@ public class Controller : MonoBehaviour {
     public float minOffset;
     public Ease easeJumpType;
     public Ease easeFallType;
-    
+
+    public GameObject armUpPos;
+    public SpriteRenderer arm;
+    public SpriteRenderer arm2;
 
     //assets
     [Header("Assets")]
@@ -38,6 +41,12 @@ public class Controller : MonoBehaviour {
         waveOffset = Random.Range(maxOffset, minOffset);
         maxPos.y += waveOffset;
 
+        //brazo
+        arm.transform.position = armUpPos.transform.position;
+        arm.flipY = true;
+        arm2.transform.position = armUpPos.transform.position;
+        arm2.flipY = true;
+
         gameObject.transform.DOMove(new Vector3(maxPos.x, maxPos.y, 0), timeUp).SetEase(easeJumpType).OnComplete(GoDown);
     }
 
@@ -48,7 +57,17 @@ public class Controller : MonoBehaviour {
 
     public void GoDown()
     {
-        gameObject.transform.DOMove(new Vector3(startPos.x, startPos.y, 0), timeDown).SetEase(easeFallType);
+        gameObject.transform.DOMove(new Vector3(startPos.x, startPos.y, 0), timeDown).SetEase(easeFallType).OnComplete(FullDown);
+    }
+
+    public void FullDown()
+    {
+        //brazo
+        arm.transform.position = transform.position;
+        arm.flipY = false;
+
+        arm2.transform.position = transform.position;
+        arm2.flipY = false;
     }
 
     public void OnWaveCompleted()
@@ -62,5 +81,7 @@ public class Controller : MonoBehaviour {
         r_cara.sortingLayerName = layer;
         r_camiseta.sortingLayerName = layer;
         r_pantalon.sortingLayerName = layer;
+        arm.sortingLayerName = layer;
+        arm2.sortingLayerName = layer;
     }
 }
