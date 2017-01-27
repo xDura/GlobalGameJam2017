@@ -78,17 +78,7 @@ public class PlayerController : Controller {
 
     public void OpenLight()
     {
-        _light.DOIntensity(2.5f, 1f).OnUpdate(OnLightUpdate).OnComplete(OnLightComplete);
-    }
-
-    public void OnLightUpdate()
-    {
-        Debug.Log("Intensity Update: " + _light.intensity);
-    }
-
-    public void OnLightComplete()
-    {
-        Debug.Log("Intensity Complete: " + _light.intensity);
+        _light.DOIntensity(2.5f, 1f);
     }
 
     public void CloseLight()
