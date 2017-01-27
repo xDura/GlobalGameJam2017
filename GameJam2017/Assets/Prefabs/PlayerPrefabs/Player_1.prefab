@@ -353,7 +353,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &114724790879510946
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0}
   wentUp: 0
-  hasWaved: 1
+  hasWaved: 0
   bodyReference: {fileID: 4978578607516442}
   timeUp: 0.7
   timeDown: 0.7
@@ -456,9 +456,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 74
-  m_Sprite: {fileID: 21300000, guid: c78140597c54b8d45999c6712f12ccfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0dc20b8d26a5e047a8a39d11ac16de2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212391735925882284
 SpriteRenderer:
@@ -491,7 +491,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 74b22f7f7662ef448b2e9b6ac5caccc8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1301a7ee28ba8f74d9ae852941981dd1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -526,7 +526,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 74
-  m_Sprite: {fileID: 21300000, guid: c78140597c54b8d45999c6712f12ccfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 345e96f02ef8c1a478eff9e08f3d13ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

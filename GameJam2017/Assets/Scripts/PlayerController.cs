@@ -74,12 +74,21 @@ public class PlayerController : Controller {
         debugSweepLinePos = sweepLine.transform.position;
         debugSweepLinePos.y = debugPos.y;
         distanceScore = Mathf.Abs(sweepLine.transform.position.x - transform.position.x);
-        //Debug.LogError("Player: " + gameObject.name + "Distance: " + distanceScore);
     }
 
     public void OpenLight()
     {
-        _light.DOIntensity(2.5f, 1f);
+        _light.DOIntensity(2.5f, 1f).OnUpdate(OnLightUpdate).OnComplete(OnLightComplete);
+    }
+
+    public void OnLightUpdate()
+    {
+        Debug.Log("Intensity Update: " + _light.intensity);
+    }
+
+    public void OnLightComplete()
+    {
+        Debug.Log("Intensity Complete: " + _light.intensity);
     }
 
     public void CloseLight()

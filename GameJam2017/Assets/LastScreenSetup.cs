@@ -10,7 +10,7 @@ public class LastScreenSetup : MonoBehaviour {
     public List<GameObject> playersCross;
     public List<Light> lights;
     public bool reseted = false;
-
+    public GameObject canvasLastScreenButtons;
     public GameObject petardos;
 
     public void Restore()
@@ -52,6 +52,11 @@ public class LastScreenSetup : MonoBehaviour {
 
     }
 
+    public void EnableButtons()
+    {
+        canvasLastScreenButtons.SetActive(true);
+    }
+
     public void Kill(int i)
     {
         playersCross[i].SetActive(true);
@@ -60,11 +65,13 @@ public class LastScreenSetup : MonoBehaviour {
 
     public void Quit()
     {
+        if (!canvasLastScreenButtons.activeInHierarchy) return;
         Application.Quit();
     }
 
     public void RestartGame()
     {
+        if (!canvasLastScreenButtons.activeInHierarchy) return;
         if (!reseted)
             StartCoroutine(RestartGameCoroutien());
         reseted = true;
