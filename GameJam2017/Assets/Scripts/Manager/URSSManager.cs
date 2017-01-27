@@ -452,6 +452,10 @@ public class URSSManager : MonoBehaviour {
         audioController.victorySong.Stop();
         backGround.DOColor(Color.red, 0.35f);
 
+        //se podria hacer con un oncomplete en el Docolor
+        yield return new WaitForSeconds(0.35f);
+        lastScreenSetup.EnableButtons();
+
     }
 
 }

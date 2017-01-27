@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1312417679421418
 GameObject:
   m_ObjectHideFlags: 1
@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1386791958293732
 GameObject:
   m_ObjectHideFlags: 1
@@ -524,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1686801004056084
 GameObject:
   m_ObjectHideFlags: 1
@@ -621,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1774985264595320
 GameObject:
   m_ObjectHideFlags: 1
@@ -716,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1846293411467428
 GameObject:
   m_ObjectHideFlags: 1
@@ -751,7 +751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1870568865626020
 GameObject:
   m_ObjectHideFlags: 1
@@ -865,7 +865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1970547156240980
 GameObject:
   m_ObjectHideFlags: 1
@@ -1707,6 +1707,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -1738,6 +1741,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -1768,9 +1774,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b284a6525342f44599e9ce79e37c2d61, type: 3}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 14
     m_MaxSize: 20
@@ -1828,11 +1834,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b284a6525342f44599e9ce79e37c2d61, type: 3}
     m_FontSize: 10
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 20
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1910,7 +1916,6 @@ MonoBehaviour:
   - {fileID: 1381686396011146}
   - {fileID: 1964871720734544}
   - {fileID: 1724161042123272}
-  - {fileID: 1853870802420600}
   - {fileID: 1675940527404096}
   playersCross:
   - {fileID: 1440949877818408}
@@ -1923,6 +1928,7 @@ MonoBehaviour:
   - {fileID: 108588990611335668}
   - {fileID: 108400153912025478}
   reseted: 0
+  canvasLastScreenButtons: {fileID: 1853870802420600}
   petardos: {fileID: 1675940527404096}
 --- !u!114 &114397394189470098
 MonoBehaviour:
@@ -2074,6 +2080,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -2121,6 +2130,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -2319,7 +2331,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -761001546
+  randomSeed: 2071779753
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5010,7 +5022,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2057663652
+  randomSeed: 2045291571
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7626,7 +7638,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -948159576
+  randomSeed: -1919612468
   InitialModule:
     serializedVersion: 3
     enabled: 1
