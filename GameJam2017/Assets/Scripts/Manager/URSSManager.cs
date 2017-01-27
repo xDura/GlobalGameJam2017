@@ -32,6 +32,8 @@ public class URSSManager : MonoBehaviour {
     public List<Sprite> caras;
     public List<Sprite> camisetas;
     public List<Sprite> pantalones;
+    public List<Sprite> l_arms;
+    public List<Sprite> r_arms;
 
     public GameObject npcPrefab;
     public List<GameObject> playersPrefabs;
@@ -270,7 +272,7 @@ public class URSSManager : MonoBehaviour {
             npcObject.transform.position = currentSeat.transform.position;
             NPCController npcController = npcObject.GetComponent<NPCController>();
             currentSeat.takenBy = npcController;
-            npcController.SetSprites(caras[caraId], camisetas[camisetaId], pantalones[pantalonId]);
+            npcController.SetSprites(caras[caraId], camisetas[camisetaId], pantalones[pantalonId], l_arms[camisetaId], r_arms[camisetaId]);
             npcController.SetLayer(currentSeat.GetComponent<SpriteRenderer>().sortingLayerName);
         }
     }

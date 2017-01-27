@@ -1199,7 +1199,7 @@ Transform:
   m_GameObject: {fileID: 1007119430945310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.165, y: -0.101, z: 0}
-  m_LocalScale: {x: 0.46296337, y: 0.4173563, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.4173563, z: 1}
   m_Children: []
   m_Father: {fileID: 4680620567036874}
   m_RootOrder: 5
@@ -2031,6 +2031,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -2080,6 +2083,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -2181,6 +2187,9 @@ MonoBehaviour:
   minOffset: 0
   easeJumpType: 0
   easeFallType: 0
+  armUpPos: {fileID: 0}
+  arm: {fileID: 0}
+  arm2: {fileID: 0}
   r_cara: {fileID: 0}
   r_camiseta: {fileID: 0}
   r_pantalon: {fileID: 0}
@@ -2212,12 +2221,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f2907c463d42ae649808e31323da9a67, type: 3}
   - {fileID: 21300000, guid: bdaefba70e344b04baa5e2ff64ae4934, type: 3}
   camisetas:
-  - {fileID: 21300000, guid: 74b22f7f7662ef448b2e9b6ac5caccc8, type: 3}
-  - {fileID: 21300000, guid: 0dd9ce916163393408b17859507572ac, type: 3}
-  - {fileID: 21300000, guid: 9f982cdee67848049869fc883d92e925, type: 3}
-  - {fileID: 21300000, guid: 4499b39042b27dc47800431914451a17, type: 3}
-  - {fileID: 21300000, guid: 7d9f85b48cf002f438687b68dd5a50b6, type: 3}
-  - {fileID: 21300000, guid: f1af45559e7dbb64fa8f3902e485ab9c, type: 3}
+  - {fileID: 21300000, guid: 1301a7ee28ba8f74d9ae852941981dd1, type: 3}
+  - {fileID: 21300000, guid: 4f2db9f0ae50ad6438504f466d0de750, type: 3}
+  - {fileID: 21300000, guid: b8bc36bbe48612149968dcf190493815, type: 3}
+  - {fileID: 21300000, guid: 628c5e75f4a77f4499c20047d4e81250, type: 3}
+  - {fileID: 21300000, guid: 490db45696d6a0748a6c01c5fd1091ec, type: 3}
+  - {fileID: 21300000, guid: c0f963f004038ed43b2ff177e28de4ab, type: 3}
   pantalones:
   - {fileID: 21300000, guid: bbde2c749f86d904a94a23819674a156, type: 3}
   - {fileID: 21300000, guid: a62ecbb65d5dc1d4dae54da0c784a208, type: 3}
@@ -2225,6 +2234,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2080c54c9b5a9974190e4ea6fe7b852a, type: 3}
   - {fileID: 21300000, guid: ffa8845717c527548bb5ea7e780ddd6e, type: 3}
   - {fileID: 21300000, guid: d6e80ed117b349c46bf98b27b53ac73a, type: 3}
+  l_arms:
+  - {fileID: 21300000, guid: 345e96f02ef8c1a478eff9e08f3d13ae, type: 3}
+  - {fileID: 21300000, guid: 75804240c3b5a5140b57bb7eaaabbb05, type: 3}
+  - {fileID: 21300000, guid: b48d3f3655d108b44a2f35721083dc93, type: 3}
+  - {fileID: 21300000, guid: e3ea43a03b4b04149be064e5153290c8, type: 3}
+  - {fileID: 21300000, guid: 93c7dbcf5602022469d02f5615d002a5, type: 3}
+  - {fileID: 21300000, guid: 491328ef4677e364c96e8ee50d7e1b7d, type: 3}
+  r_arms:
+  - {fileID: 21300000, guid: b0dc20b8d26a5e047a8a39d11ac16de2, type: 3}
+  - {fileID: 21300000, guid: 5a661301f07df3744ba8dbcbcdf07120, type: 3}
+  - {fileID: 21300000, guid: b004f59a8d6a1174885e995e8369edc9, type: 3}
+  - {fileID: 21300000, guid: e303399947931d943b5273798a71d212, type: 3}
+  - {fileID: 21300000, guid: 2a7fda7a83869f24281d7c8cddc60f34, type: 3}
+  - {fileID: 21300000, guid: f108d432f0014104292eea7f222ce4ec, type: 3}
   npcPrefab: {fileID: 1265039313919792, guid: 3e84c755f5e6ac341a945947b5b9cd6d, type: 2}
   playersPrefabs:
   - {fileID: 1186815086517142, guid: b4d098f0fa6c2104183f7de870e77fea, type: 2}
@@ -2375,7 +2398,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 40
   m_Sprite: {fileID: 21300000, guid: 4499b39042b27dc47800431914451a17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2410,7 +2433,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 34
   m_Sprite: {fileID: 21300000, guid: 9f982cdee67848049869fc883d92e925, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2550,7 +2573,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 34
   m_Sprite: {fileID: 21300000, guid: 74b22f7f7662ef448b2e9b6ac5caccc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2865,7 +2888,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 34
   m_Sprite: {fileID: 21300000, guid: 0dd9ce916163393408b17859507572ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
